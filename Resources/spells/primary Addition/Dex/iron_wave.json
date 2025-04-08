@@ -1,0 +1,27 @@
+{
+    "Type":"Attack",
+    "Target":"Single",
+    "Energy Cost":0,
+    "Rarity":"Rare",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Target":"Self",
+                "Property":"Block",
+                "Variable":"my_block"
+            },
+            {
+                "Type":"Deal Damage",
+                "Damage":{
+                    "Variable":"my_block"
+                }
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Shield Slam",
+        "Description":"Deal damage equal to your block"
+    }
+}

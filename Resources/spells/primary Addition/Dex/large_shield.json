@@ -1,0 +1,29 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Dexterity",
+                        "Value":2
+                    }
+                ]
+            }
+        ]
+    },
+    "Rarity":"Uncommon",
+    "Extra Sides":[
+        "strongman"
+    ],
+    "Switch Trigger":{
+        "Type":"Free"
+    },
+    "Card Data":{
+        "Name":"Accelerate",
+        "Description":"Gain 2 Dexterity . Adaptation, Flip"
+    }
+}

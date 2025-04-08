@@ -1,0 +1,27 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":7
+                    },{
+                        "Type":"Strength",
+                        "Value":2
+                    }
+                ]
+            }
+        ]
+    },
+    "Rarity":"Uncommon",
+    
+    "Card Data":{
+        "Name":"Burning Blood",
+        "Description":"Gain 7 Poison and 2 Strength "
+    }
+}

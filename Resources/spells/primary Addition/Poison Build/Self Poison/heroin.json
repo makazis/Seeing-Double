@@ -1,0 +1,36 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Antivenom",
+                        "Value":1
+                    },{
+                        "Type":"Poison",
+                        "Value":35
+                    },{
+                        "Type":"Strength",
+                        "Value":-4
+                    },{
+                        "Type":"Dexterity",
+                        "Value":-4
+                    }
+                ]
+            }
+        ]
+    },
+    "Attributes":{
+        "Exhaust":1
+    },
+    "Rarity":"Rare",
+    
+    "Card Data":{
+        "Name":"Heroin",
+        "Description":"Gain 1 Antivenom . Gain 35 Poison . Lose 4 Strength . Lose 4 Dexterity . Exhaust"
+    }
+}

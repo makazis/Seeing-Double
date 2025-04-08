@@ -1,0 +1,24 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":0,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":1
+            },{
+                "Type":"Deal Damage",
+                "Damage":1
+            },{
+                "Type":"Deal Damage",
+                "Damage":1
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Claw",
+        "Description":"Deal 1 damage three times"
+    }
+}

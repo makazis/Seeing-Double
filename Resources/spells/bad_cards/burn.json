@@ -1,0 +1,22 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":0,
+    "Not In Pool":{},
+    "Rarity":"Cursed",
+    "Image Path":"Resources/images/card_images/burn.jpg",
+    "Effects":{
+        "On Play":[{
+            "Type":"Deal Damage",
+            "Damage":2
+        }]
+    },
+    "Attributes":{
+        "Unplayable":1,
+        "Forced":1
+    },
+    "Card Data":{
+        "Name":"Burn",
+        "Description":"End Of Turn: Take 2 damage. Unplayable"
+    }
+}

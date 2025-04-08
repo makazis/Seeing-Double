@@ -1,0 +1,29 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Strength",
+                        "Value":2
+                    }
+                ]
+            }
+        ]
+    },
+    "Rarity":"Uncommon",
+    "Extra Sides":[
+        "large_shield"
+    ],
+    "Switch Trigger":{
+        "Type":"Free"
+    },
+    "Card Data":{
+        "Name":"Flex",
+        "Description":"Gain 2 Strength . Adaptation, Flip"
+    }
+}

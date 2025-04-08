@@ -1,0 +1,21 @@
+{
+    "Type":"Attack",
+    "Target":"All Enemies",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":2
+            },{
+                "Type":"Deal Damage",
+                "Damage":2
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Whirlwind",
+        "Description":"Deal 2 damage to all enemies twice"
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":9
+            },{
+                "Type":"Draw Cards",
+                "Cards Drawn":1
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Setup Punch",
+        "Description":"Deal 9 damage. Draw 1 card"
+    }
+}

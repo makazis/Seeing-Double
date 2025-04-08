@@ -1,0 +1,32 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":15
+                    },{
+                        "Type":"Antivenom",
+                        "Value":3
+                    }
+                ]
+            },{
+                "Type":"Flip To Side",
+                "Side":"burn"
+            }
+        ]
+    },
+    "Switch Trigger":{
+        "Type":"Forced"
+    },
+    "Card Data":{
+        "Name":"Delayed Murder",
+        "Description":"Apply 15 Poison . Apply 5 Antivenom . Scorch"
+    }
+}

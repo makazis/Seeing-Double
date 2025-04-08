@@ -1,0 +1,29 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Display Name":"Defend",
+    "Not In Pool":{},
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Gain Block",
+                "Block":10
+            },
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":2
+                    }
+                ]
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Poisoned Blood",
+        "Description":"Gain 10 block. Gain 2 Poison . Flip"
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":0,
+    "Not In Pool":{},
+    "Rarity":"Cursed",
+    "Overlay":"Cursed",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Strength",
+                        "Value":-1
+                    }
+                ]
+            }
+        ]
+    },
+    "Attributes":{
+        "Unplayable":1,
+        "Forced":1
+    },
+    "Extra Sides":[
+        "plague_of_death",
+        "plague_of_pestilence",
+        "plague_of_war"
+    ],
+    "Switch Trigger":{
+        "Type":"Free"
+    },
+    "Card Data":{
+        "Name":"Plague Of Famine",
+        "Description":"End Of Turn: Lose 1 Strength . Unplayable, Flip"
+    }
+}

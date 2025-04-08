@@ -1,0 +1,29 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":0,
+    "Not In Pool":{},
+    "Rarity":"Cursed",
+    "Overlay":"Cursed",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Dexterity",
+                        "Value":-1
+                    }
+                ]
+            }
+        ]
+    },
+    "Attributes":{
+        "Unplayable":1,
+        "Forced":1
+    },
+    "Card Data":{
+        "Name":"Plague Of Death",
+        "Description":"End Of Turn: Lose 1 Dexterity . Unplayable, Flip"
+    }
+}

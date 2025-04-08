@@ -1,0 +1,28 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "Lose All Block":[
+            {
+                "Type":"Set Target",
+                "Target":"All Enemies"
+            },
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":5
+                    }
+                ]
+            }
+        ]
+    },
+    "Rarity":"Rare",
+    
+    "Card Data":{
+        "Name":"Venomthorn",
+        "Description":"Lose All Block: Apply 5 Poison to all enemies. Adaptation"
+    }
+}

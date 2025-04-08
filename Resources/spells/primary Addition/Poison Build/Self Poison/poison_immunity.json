@@ -1,0 +1,26 @@
+{
+    "Type":"Skill",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Antivenom",
+                        "Value":3
+                    }
+                ]
+            }
+        ]
+    },
+    "Rarity":"Common",
+    "Attributes":{
+        "Exhaust":1
+    },
+    "Card Data":{
+        "Name":"Serum",
+        "Description":"Gain 3 Antivenom"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":5
+                    }
+                ]
+            }
+        ]
+    },
+    "Extra Sides":[
+        "poison_2"
+    ],
+    "Switch Trigger":{
+        "Type":"Free"
+    },
+    "Card Data":{
+        "Name":"Poison Bite",
+        "Description":"Apply 5 Poison . Flip"
+    }
+}

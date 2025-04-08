@@ -1,0 +1,32 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":0,
+    "Not In Pool":{},
+    "Rarity":"Cursed",
+    "Overlay":"Cursed",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Vulnerable",
+                        "Value":1
+                    },{
+                        "Type":"Weak",
+                        "Value":2
+                    }
+                ]
+            }
+        ]
+    },
+    "Attributes":{
+        "Unplayable":1,
+        "Forced":1
+    },
+    "Card Data":{
+        "Name":"Plague Of War",
+        "Description":"End Of Turn: Gain 1 Vulnerable and 2 Weak . Unplayable, Flip"
+    }
+}

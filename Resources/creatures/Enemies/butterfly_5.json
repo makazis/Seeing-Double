@@ -1,0 +1,54 @@
+{
+    "Health":6,
+    "Animations":[
+        {
+            "Sprite Path":"Resources/creatures/Enemies/teal_butterfly.png",
+            "X Center":0,
+            "Y Center":0,
+            "Y Movement":5,
+            "Y Fi":0,
+            "Omega":0.05,
+            "Side":"0"
+        }
+    ],
+    "Attack Pattern":{
+        "Type":"Random",
+        "Attacks":[
+            {
+                "Type":"Buff Self",
+                "Buffs":[
+                    {
+                        "Type":"Strength",
+                        "Value":1
+                    },{
+                        "Type":"Dexterity",
+                        "Value":1
+                    },{
+                        "Type":"Conduit",
+                        "Value":4
+                    }
+                ],
+                "Weight":1
+            },{
+                "Type":"Deal Damage And Block",
+                "Damage":4,
+                "Block":4,
+                "Weight":1
+                
+            }
+        ]
+    },
+    "Gift":{
+        "Type":"Apply Buff",
+        "Buffs":[
+            {
+                "Type":"Strength",
+                "Value":1
+            },{
+                "Type":"Dexterity",
+                "Value":1
+            }
+        ]
+    },
+    "Gift Chance":0.3
+}

@@ -1,0 +1,14 @@
+# Standard VSCode files
+.vscode/
+.vscode/*
+
+# Python files
+*.pyc
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+
+log.txt
+saves/

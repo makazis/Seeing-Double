@@ -1,0 +1,44 @@
+{
+    "Health":17,
+    "Animations":[
+        {
+            "Sprite Path":"Resources/creatures/Enemies/summer_butterfly.png",
+            "X Center":0,
+            "Y Center":0,
+            "Y Movement":5,
+            "Y Fi":0,
+            "Omega":0.05,
+            "Side":"0"
+        }
+    ],
+    "Attack Pattern":{
+        "Type":"Random",
+        "Attacks":[
+            {
+                "Type":"Buff Self",
+                "Buffs":[
+                    {
+                        "Type":"Strength",
+                        "Value":4
+                    }
+                ],
+                "Weight":1
+            },{
+                "Type":"Deal Damage",
+                "Damage":10,
+                "Weight":1
+                
+            }
+        ]
+    },
+    "Gift":{
+        "Type":"Apply Buff",
+        "Buffs":[
+            {
+                "Type":"Strength",
+                "Value":-1
+            }
+        ]
+    },
+    "Gift Chance":0.2
+}

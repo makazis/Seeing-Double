@@ -1,0 +1,18 @@
+{
+    "Type":"Attack",
+    "Target":"Single",
+    "Energy Cost":1,
+    "Not In Pool":{},
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":6
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Strike",
+        "Description":"Deal 6 damage"
+    }
+}

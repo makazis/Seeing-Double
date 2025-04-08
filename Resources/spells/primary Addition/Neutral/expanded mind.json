@@ -1,0 +1,21 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Modify Global Variable",
+                "Name":"Cards Drawn Per Turn",
+                "Operation":"+",
+                "Value":1
+            }
+        ]
+    },
+    "Rarity":"Rare",
+    
+    "Card Data":{
+        "Name":"Quick Thinking",
+        "Description":"Draw 1 card at the start of each turn. Adaptation"
+    }
+}

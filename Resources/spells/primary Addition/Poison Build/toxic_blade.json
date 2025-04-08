@@ -1,0 +1,27 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":6
+            },{
+                "Type":"Flip To Side",
+                "Side":"toxic_blade_2"
+            }
+        ]
+    },
+    "Extra Sides":[
+        "toxic_blade_2"
+    ],
+    "Switch Trigger":{
+        "Type":"Forced"
+    },
+    "Card Data":{
+        "Name":"Acidic Blade",
+        "Description":"Deal 6 damage. Transform: Acid Blade"
+    }
+}

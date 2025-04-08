@@ -1,0 +1,26 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":0,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":4
+                    }
+                ]
+            },{
+                "Type":"Draw Cards",
+                "Cards Drawn":2
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Bad Apple",
+        "Description":"Gain 4 Poison . Draw 2 cards."
+    }
+}

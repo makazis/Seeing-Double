@@ -1,0 +1,33 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Not In Pool":{},
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":6
+                    }
+                ]
+            },{
+                "Type":"Flip To Side",
+                "Side":"toxic_blade"
+            }
+        ]
+    },
+    "Extra Sides":[
+        "toxic_blade"
+    ],
+    "Switch Trigger":{
+        "Type":"Forced"
+    },
+    "Card Data":{
+        "Name":"Acid Blade",
+        "Description":"Apply 6 Poison . Transform: Acidic Blade"
+    }
+}

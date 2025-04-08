@@ -1,0 +1,23 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "Start Of Turn":[
+            {
+                "Type":"Set Target",
+                "Target":"Self"
+            },
+            {
+                "Type":"Gain Block",
+                "Block":2
+            }
+        ]
+    },
+    "Rarity":"Uncommon",
+    
+    "Card Data":{
+        "Name":"Metalicize",
+        "Description":"Start Of Turn: Gain 2 block. Adaptation"
+    }
+}

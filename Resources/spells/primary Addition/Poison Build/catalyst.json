@@ -1,0 +1,35 @@
+{
+    "Type":"Skill",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Property":"Buff",
+                "Buff":"Poison",
+                "Variable":"poison_on_them"
+            },
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":{
+                            "Variable":"poison_on_them"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "Attributes":{
+        "Exhaust":1
+    },
+    "Card Data":{
+        "Name":"Catalyst",
+        "Description":"Double the Poison on any creature, Hallucination."
+    }
+}

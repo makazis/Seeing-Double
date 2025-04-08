@@ -1,0 +1,14 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":3,
+    "Effects":{
+        "Permanent":"barricade"
+    },
+    "Rarity":"Rare",
+    
+    "Card Data":{
+        "Name":"Wall",
+        "Description":"Keep block between turns. Adaptation"
+    }
+}

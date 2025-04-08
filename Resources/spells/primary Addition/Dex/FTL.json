@@ -1,0 +1,28 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Dexterity",
+                        "Value":5
+                    },
+                    {
+                        "Type":"Strength",
+                        "Value":-2
+                    }
+                ]
+            }
+        ]
+    },
+    "Rarity":"Uncommon",
+    
+    "Card Data":{
+        "Name":"Inner Peace",
+        "Description":"Gain 5 Dexterity . Lose 2 Strength . Adaptation"
+    }
+}

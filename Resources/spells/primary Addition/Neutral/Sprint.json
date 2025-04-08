@@ -1,0 +1,26 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Gain Energy",
+                "Energy":2
+            },
+            {
+                "Type":"Deal Damage",
+                "Damage":2
+            }
+        ]
+    },
+    "Attributes":{
+        "Exhaust":1
+    },
+    "Rarity":"Common",
+    
+    "Card Data":{
+        "Name":"Sprint",
+        "Description":"Take 2 Damage. Gain 2 Energy .Hallucination"
+    }
+}

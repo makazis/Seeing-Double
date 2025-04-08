@@ -1,0 +1,24 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":2,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":5
+            },{
+                "Type":"Deal Damage",
+                "Damage":5
+            },{
+                "Type":"Deal Damage",
+                "Damage":5
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Blade Dance",
+        "Description":"Deal 5 damage three times"
+    }
+}

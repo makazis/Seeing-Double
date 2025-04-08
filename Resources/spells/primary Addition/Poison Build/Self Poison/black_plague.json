@@ -1,0 +1,37 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Rarity":"Rare",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Target":"Self",
+                "Property":"Buff",
+                "Buff":"Poison",
+                "Variable":"poison_on_me"
+            },
+            {
+                "Type":"Set Target",
+                "Target":"All Enemies"
+            },
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":{
+                            "Variable":"poison_on_me"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"The Black Plague",
+        "Description":"Apply Poison to all enemies equal to Poison on you."
+    }
+}

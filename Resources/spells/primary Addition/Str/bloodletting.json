@@ -1,0 +1,28 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":0,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":10
+            },{
+                "Type":"Gain Energy",
+                "Energy":2
+            },{
+                "Type":"Draw Cards",
+                "Cards Drawn":2
+            }
+
+        ]
+    },
+    "Attributes":{
+        "Exhaust":1
+    },
+    "Card Data":{
+        "Name":"Offering",
+        "Description":"Take 10 damage. Draw 2 cards. Gain 2 Energy . Hallucination"
+    }
+}

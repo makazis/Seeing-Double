@@ -1,0 +1,12 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":0,
+    "Not In Pool":{},
+    "Rarity":"Cursed",
+    "Effects":{},
+    "Card Data":{
+        "Name":"Exhausted",
+        "Description":"This card used to be better"
+    }
+}

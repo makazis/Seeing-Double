@@ -1,0 +1,28 @@
+{
+    "Type":"Attack",
+    "Target":"Single",
+    "Energy Cost":2,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":23
+            },
+            {
+                "Type":"Flip To Side",
+                "Side":"Exhausted"
+            }
+        ]
+    },
+    "Extra Sides":[
+        "Exhausted"
+    ],
+    "Switch Trigger":{
+        "Type":"Exhaust"
+    },
+    "Card Data":{
+        "Name":"Final Blow",
+        "Description":"Deal 23 Damage. Exhaust"
+    }
+}

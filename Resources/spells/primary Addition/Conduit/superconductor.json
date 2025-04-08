@@ -1,0 +1,28 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":3,
+    "Effects":{
+        "Start Of Turn":[
+            {
+                "Type":"Set Target",
+                "Target":"Self"
+            },
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Conduit",
+                        "Value":2
+                    }
+                ]
+            }
+        ]
+    },
+    "Rarity":"Rare",
+    
+    "Card Data":{
+        "Name":"Superconductor",
+        "Description":"Start Of Turn: Gain 2 Conduit . Adaptation"
+    }
+}

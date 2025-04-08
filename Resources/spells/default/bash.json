@@ -1,0 +1,27 @@
+{
+    "Type":"Attack",
+    "Target":"Single",
+    "Energy Cost":2,
+    "Not In Pool":{},
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":8
+            },
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Vulnerable",
+                        "Value":2
+                    }
+                ]
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Bash",
+        "Description":"Deal 8 damage. Apply 2 Vulnerable "
+    }
+}

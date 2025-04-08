@@ -1,0 +1,24 @@
+{
+    "Type":"Attack",
+    "Target":"Single",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":7
+            }
+        ]
+    },
+    "Extra Sides":[
+        "t2"
+    ],
+    "Switch Trigger":{
+        "Type":"Free"
+    },
+    "Card Data":{
+        "Name":"Flexible Strike",
+        "Description":"Deal 7 damage. Flip"
+    }
+}

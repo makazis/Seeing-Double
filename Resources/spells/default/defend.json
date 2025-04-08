@@ -1,0 +1,19 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Display Name":"Defend",
+    "Not In Pool":{},
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Gain Block",
+                "Block":5
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Defend",
+        "Description":"Gain 5 block"
+    }
+}

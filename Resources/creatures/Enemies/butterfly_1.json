@@ -1,0 +1,39 @@
+{
+    "Health":11,
+    "Animations":[
+        {
+            "Sprite Path":"Resources/creatures/Enemies/butterfly.png",
+            "X Center":0,
+            "Y Center":0,
+            "Y Movement":5,
+            "Y Fi":0,
+            "Omega":0.05,
+            "Side":"0"
+        }
+    ],
+    "Attack Pattern":{
+        "Type":"Random",
+        "Attacks":[
+            {
+                "Type":"Deal Damage",
+                "Damage":6,
+                "Weight":1
+            },
+            {
+                "Type":"Buff Self",
+                "Buffs":[
+                    {
+                        "Type":"Strength",
+                        "Value":2
+                    }
+                ],
+                "Weight":0.5
+            }
+        ]
+    },
+    "Gift":{
+        "Type":"Give HP",
+        "HP":2
+    },
+    "Gift Chance":0.5
+}

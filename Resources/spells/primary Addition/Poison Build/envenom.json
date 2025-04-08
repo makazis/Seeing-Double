@@ -1,0 +1,24 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":3,
+    "Effects":{
+        "Deal Unblocked Damage":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":1
+                    }
+                ]
+            }
+        ]
+    },
+    "Rarity":"Rare",
+    
+    "Card Data":{
+        "Name":"Envenom",
+        "Description":"Whenever you deal unblocked damage, apply 1 Poison . Adaptation"
+    }
+}

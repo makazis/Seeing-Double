@@ -1,0 +1,29 @@
+{
+    "Type":"Power",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Effects":{
+        "End Of Turn":[
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Target":"Self",
+                "Property":"Buff",
+                "Buff":"Poison",
+                "Variable":"poison_on_me"
+            },
+            {
+                "Type":"Gain Block",
+                "Block":{
+                    "Variable":"poison_on_me"
+                }
+            }
+        ]
+    },
+    "Rarity":"Uncommon",
+    
+    "Card Data":{
+        "Name":"Stone Skin",
+        "Description":"End Of Turn: Gain block equal to my Poison . Adaptation"
+    }
+}

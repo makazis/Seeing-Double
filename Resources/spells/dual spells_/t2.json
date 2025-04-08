@@ -1,0 +1,19 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Display Name":"Defend",
+    "Not In Pool":{},
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Gain Block",
+                "Block":6
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Flexible Defend",
+        "Description":"Gain 6 block. Flip"
+    }
+}

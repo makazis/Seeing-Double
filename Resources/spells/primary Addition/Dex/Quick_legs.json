@@ -1,0 +1,25 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":2,
+    "Display Name":"Defend",
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Gain Block",
+                "Block":4
+            },{
+                "Type":"Gain Block",
+                "Block":4
+            },{
+                "Type":"Gain Block",
+                "Block":4
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Large Shield",
+        "Description":"Gain 4 block three times"
+    }
+}

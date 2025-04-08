@@ -1,0 +1,15 @@
+{
+    "Health":90,
+    "Animations":[
+        {
+            "Sprite Path":"Resources/creatures/players/sprites/warrior.png",
+            "X Center":0,
+            "Y Center":0,
+            "Y Movement":15,
+            "Y Fi":0,
+            "Omega":0.05,
+
+            "Side":"0"
+        }
+    ]
+}
