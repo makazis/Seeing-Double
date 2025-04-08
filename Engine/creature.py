@@ -115,8 +115,8 @@ class Creature:
                 self.alive=False
             self.update_action()
             self.draw()
-            return was_unblocked
-        return was_unblocked
+            return was_unblocked,
+        return was_unblocked,
     def turn_start(self):
         if self.team==1:
             if self.attacks["Type"]=="Random":
