@@ -11,6 +11,7 @@ class Run:
         self.surface=surface
         self.victory=False #No winning
         self.player_hp=90
+        self.money=99
         self.floor=0
         self.enemy_effects=[]
         self.player_hp_healed=0
