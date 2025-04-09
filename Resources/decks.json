@@ -27,27 +27,6 @@
         },{
             "Type":"Spell",
             "ID":"bash"
-        },{
-            "Type":"Spell",
-            "ID":"rotten_armor"
-        },{
-            "Type":"Spell",
-            "ID":"poison_immunity"
-        },{
-            "Type":"Spell",
-            "ID":"vinegar"
-        },{
-            "Type":"Spell",
-            "ID":"poison_build"
-        },{
-            "Type":"Spell",
-            "ID":"catalyst"
-        },{
-            "Type":"Spell",
-            "ID":"heroin"
-        },{
-            "Type":"Spell",
-            "ID":"lasting_effect"
         }
     ]
 }

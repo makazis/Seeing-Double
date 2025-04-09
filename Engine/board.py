@@ -183,7 +183,7 @@ class Board:
         if self.p_turn:
             for i in range(self.energy):
                 center(large_energy_icon,self.surface,50+i*50,850)
-            if button.display_button("end turn",bpc=(91,40,22),click=self.click,surface=self.surface,mouse_pos=self.mouse_pos,x=100,y=800):
+            if button.display_button("end turn",bpc=(91,40,22),click=self.click,surface=self.surface,mouse_pos=self.mouse_pos,x=100,y=800) or self.keys[pygame.K_e]:
                 self.end_turn()
         
         for i in range(6):
@@ -227,6 +227,7 @@ class Board:
                 self.mcctimer-=delta
             else:
                 self.mcctimer=0
+        self.keys=pygame.key.get_pressed()
     def add_card_to_game(self,plain_card_id,plain_card_type="Creature",prime=True,**kwargs): #Adds a new card to the game, returns the created card
         new_card=Card() 
 
