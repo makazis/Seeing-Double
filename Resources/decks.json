@@ -2,7 +2,13 @@
     "Warrior":[
         {
             "Type":"Spell",
-            "ID":"strike"
+            "ID":"defend"
+        },{
+            "Type":"Spell",
+            "ID":"defend"
+        },{
+            "Type":"Spell",
+            "ID":"defend"
         },{
             "Type":"Spell",
             "ID":"defend"
@@ -17,13 +23,7 @@
             "ID":"strike"
         },{
             "Type":"Spell",
-            "ID":"defend"
-        },{
-            "Type":"Spell",
-            "ID":"defend"
-        },{
-            "Type":"Spell",
-            "ID":"defend"
+            "ID":"strike"
         },{
             "Type":"Spell",
             "ID":"bash"

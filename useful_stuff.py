@@ -77,7 +77,7 @@ speeds=[0.5,1,2,4]
 str_speeds=["Slow","Normal","Quick","Zoom"]
 
 rarities=["Common", "Uncommon", "Rare","Cursed"]
-rarity_weights=[20,40,30,0]
+rarity_weights=[140,50,10,1]
 #We do 5 common cards for each synergy, 3 uncommon and 1 rare
 #and we make 10 neutral cards
 #The mayor synnergies should be:
