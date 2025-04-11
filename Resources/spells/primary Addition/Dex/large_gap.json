@@ -1,0 +1,28 @@
+{
+    "Type":"Attack",
+    "Target":"Single",
+    "Energy Cost":1,
+    "Rarity":"Rare",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[{
+                    "Type":"Weak",
+                    "Value":2
+                }]
+            },{
+                "Type":"Set Target",
+                "Target":"Self"
+            },
+            {
+                "Type":"Gain Block",
+                "Block":4
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Create Distance",
+        "Description":"Apply 2 Weak , gain 4 block. "
+    }
+}

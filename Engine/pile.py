@@ -113,6 +113,7 @@ class Hand(Pile):
                                     if lf_target in ["Self","Any"]:
                                         distance=dist(i["Position"],(self.selected_card.vector_space_element.x,self.selected_card.vector_space_element.y))
                                         dists[distance]=i
+                            target=None
                             if len(dists)>0:
                                 closest=dists[min(list(dists.keys()))]
                                 the_pos=closest["Position"]

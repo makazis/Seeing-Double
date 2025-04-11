@@ -7,6 +7,7 @@ with open("./Resources/decks.json","r") as read_file:
     default_deck_1=json.loads(read_file.read())["Warrior"]
 class Run:
     def __init__(self,surface,save_data):
+        self.rarity_weights=[150,40,10,0]
         self.deck=default_deck_1.copy()
         self.surface=surface
         self.victory=False #No winning

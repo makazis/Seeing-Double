@@ -1,0 +1,26 @@
+{
+    "Required Tags":{
+        "Type":{
+            "Attack":"If it's made to harm someone, it's an attack",
+            "Skill":"If it helps someone, it's a skill",
+            "Power":"If it stays (Adaptation), it's a power"
+        },
+        "Target":{
+            "Any":"Can be used on any creature on the board",
+            "Self":"Can be used only on yourself, (good with powers)",
+            "Single":"Can be used on a single enemy",
+            "All Enemies":"Pretty self explanatory"
+        },
+        "Energy Cost":"INT representing how much the card costs",
+        "Rarity":{
+            "Common":"The Most Common rarity, makes up most of the cards",
+            "Uncommon":"Less common, more unique effects",
+            "Rare":"Very Cool and unique effects that you can build a deck around",
+            "Cursed":"Not in card pool, reserved for cards that actively weaken the player"
+        },
+        "Card Data":{
+            "Name":"The Name of the card",
+            "Description":"The description of the card. Any effects written here will be translated into symbols, if possible."
+        }
+    }
+}

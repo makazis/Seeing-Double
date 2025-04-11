@@ -1,0 +1,23 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":5
+                    }
+                ]
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Poison",
+        "Description":"Apply 5 Poison"
+    }
+}
