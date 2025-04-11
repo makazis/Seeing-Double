@@ -26,5 +26,6 @@ class Map:
                 self.density=self.density**(1+random()/9)
             for ii in range(1+int(6*self.density)):
                 new_room=Room(room_weights=[2,1,0.2,1])
+        
             print()
 new_map=Map(34)
