@@ -1,0 +1,2 @@
+X costing cards that give C*X block or deal that much damage
+3 mana card that deflects 60% of the attack back at the attacker

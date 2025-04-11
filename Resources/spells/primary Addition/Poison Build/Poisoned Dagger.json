@@ -1,0 +1,26 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":6
+            },{
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":3
+                    }
+                ]
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Poisoned Dagger",
+        "Description":"Deal 6 damage. Apply 3 Poison ."
+    }
+}

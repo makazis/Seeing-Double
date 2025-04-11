@@ -76,7 +76,7 @@ def combat(surface,parent,save_data):
                     debugMode = not debugMode
                 
         _board.update(dt)
-        response=_board.draw(dt)
+        response=_board.draw(dt,surface)
         if response=="Game Over":
             combat_menu_is_running=False
             lost=True

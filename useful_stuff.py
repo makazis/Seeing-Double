@@ -71,13 +71,23 @@ small_buff_icons={
 dis_buff_icons={
     i:pygame.transform.scale(buff_icons[i],(24,24)) for i in buff_icons
 }
+map_icons={
+    "Enemy":icon_sheet.subsurface((32*13,32*53,32,32)),
+    "Elite":icon_sheet.subsurface((32*15,32*53,32,32)),
+    "Shop":icon_sheet.subsurface((0,0,32,32)),
+    "Miniboss":pygame.image.load("Resources/Icons/Miniboss.png")
+}
+
+map_icons={
+    i:pygame.transform.scale(map_icons[i],(64,64)) for i in map_icons
+}
 #pygame.image.save(buff_icons["Weakness"],"sword_test.png")
 
 speeds=[0.5,1,2,4]
 str_speeds=["Slow","Normal","Quick","Zoom"]
 
 rarities=["Common", "Uncommon", "Rare","Cursed"]
-rarity_weights=[200,40,10,0]
+rarity_weights=[140,50,10,1]
 #We do 5 common cards for each synergy, 3 uncommon and 1 rare
 #and we make 10 neutral cards
 #The mayor synnergies should be:

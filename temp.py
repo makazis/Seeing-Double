@@ -1,1 +1,2 @@
-from Engine.buff_tips import buff_tips
+from Engine.map import Map
+Map(20,1)

@@ -32,6 +32,7 @@ class Hand(Pile):
     def draw(self,board,delta=1):
         self.cards_in_hand=len(self.cards)
         if self.cards_in_hand>0:
+            saved_I=0
             card_distance_from_mouse={}
             for I,iterated_card in enumerate(self.cards):
                 if not iterated_card in [self.selected_card,self.card_rendered_on_top]:

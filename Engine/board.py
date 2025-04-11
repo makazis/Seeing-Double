@@ -53,12 +53,14 @@ class Board:
         }
         self.powers=[]
         self.bad_apple=True #trolololol
+
+        self.inventory_y=0
     def setup_hand(self,max_cards=10):
         self.hand=Engine.pile.Hand((0,500),max_cards)
     def setup_card_pile(self,card_pile_name="Deck",pos=(900,0),custom_size=(210,320)):
         self.card_piles[card_pile_name]=Engine.pile.Pile(card_pile_name,pos,custom_size=custom_size)
         #self.card_piles.append(card_pile_name)
-    def draw(self,delta=1):
+    def draw(self,delta=1,screen=None):
         if len(self.npc_cache)==0 and not self.p_turn:
             
             self.turn_start() #has to be up here so that some stuff down the line doesn't get sad/
@@ -176,16 +178,18 @@ class Board:
             self.hand.draw(self,delta=delta)
         
         #cooler cursor
-        mc_size=10-(min(self.mcctimer/6,1)/1)**2*8 #adding a smooth easing motion for more fun
+        
         #pygame.draw.circle(self.surface,(255,255,255),self.mouse_pos,mc_size+3,2)
 
         #pygame.draw.rect(self.surface,(91,40,22),(90,860-self.energy*20,20,self.energy*20),3,10)
         if self.p_turn:
             for i in range(self.energy):
                 center(large_energy_icon,self.surface,50+i*50,850)
-            if button.display_button("end turn",bpc=(91,40,22),click=self.click,surface=self.surface,mouse_pos=self.mouse_pos,x=100,y=800):
+            if button.display_button("end turn",bpc=(91,40,22),click=self.click,surface=self.surface,mouse_pos=self.mouse_pos,x=100,y=800) or self.keys[pygame.K_e]:
                 self.end_turn()
-        
+        if button.display_button("Deck",bpc=(244,144,224),click=self.click,surface=self.surface,mouse_pos=self.mouse_pos,x=30,y=50) or self.keys[pygame.K_c]:
+            self.display_deck(self.deck,screen)
+        mc_size=10-(min(self.mcctimer/6,1)/1)**2*8 #adding a smooth easing motion for more fun
         for i in range(6):
             r = abs(cos(self.time_passed / 40 + pi / 3 * i)) * 255
             g = abs(cos(self.time_passed / 40 + pi / 3 * i)) * 255
@@ -227,6 +231,7 @@ class Board:
                 self.mcctimer-=delta
             else:
                 self.mcctimer=0
+        self.keys=pygame.key.get_pressed()
     def add_card_to_game(self,plain_card_id,plain_card_type="Creature",prime=True,**kwargs): #Adds a new card to the game, returns the created card
         new_card=Card() 
 
@@ -282,6 +287,7 @@ class Board:
         else:
             return "Empty Pile"
     def import_deck(self,json_deck_list=[],to_card_pile="Deck"): #Imports deck from a decklist
+        self.deck=json_deck_list
         # Ideal decklist should be a list consisting of cards in the following format
         # {"Name":"CARD NAME","Type":"CARD TYPE"}
         # This doesn't shuffle the deck, so it has to be done manually
@@ -532,3 +538,45 @@ class Board:
         for i in self.locations["OnTable"]:
             if i["Side"]==2:
                 i["Card"].parent.update_action()
+    def display_deck(self,deck,surface):
+        cards_in_deck=[self.add_card_to_game(i["ID"],"Spell") for i in deck]
+        while True:
+            for event in pygame.event.get():
+                if event.type==pygame.QUIT:
+                    pygame.quit()
+                    exit()
+            self.update(1)
+            self.surface.fill((15,15,15))
+            for I,i in enumerate(cards_in_deck):
+                x_pos=I%6*220+(1920-1100)/2
+                y_pos=I//6*330+10
+                i.draw()
+                self.surface.blit(i.sprite,(x_pos,y_pos))
+            if button.display_button("Back",bpc=(244,44,24),click=self.click,surface=self.surface,mouse_pos=self.mouse_pos,x=30,y=50):
+                return None
+            mc_size=10-(min(self.mcctimer/6,1)/1)**2*8 #adding a smooth easing motion for more fun
+            for i in range(6):
+                r = abs(cos(self.time_passed / 40 + pi / 3 * i)) * 255
+                g = abs(cos(self.time_passed / 40 + pi / 3 * i)) * 255
+                b = abs(cos(self.time_passed / 40 + pi / 3 * i)) * 255
+                pygame.draw.polygon(self.surface, (r, g, b), [
+                    (
+                        self.mouse_pos[0] + cos(self.time_passed / 40 + 2 * pi / 6 * i) * mc_size,
+                        self.mouse_pos[1] + sin(self.time_passed / 40 + 2 * pi / 6 * i) * mc_size,
+                    ),
+                    (
+                        self.mouse_pos[0] + cos(self.time_passed / 40 + 2 * pi / 6 * i + pi / 20) * (mc_size + 5),
+                        self.mouse_pos[1] + sin(self.time_passed / 40 + 2 * pi / 6 * i + pi / 20) * (mc_size + 5),
+                    ),
+                    (
+                        self.mouse_pos[0] + cos(self.time_passed / 40 + 2 * pi / 6 * i) * (mc_size + 10),
+                        self.mouse_pos[1] + sin(self.time_passed / 40 + 2 * pi / 6 * i) * (mc_size + 10),
+                    ),
+                    (
+                        self.mouse_pos[0] + cos(self.time_passed / 40 + 2 * pi / 6 * i - pi / 20) * (mc_size + 5),
+                        self.mouse_pos[1] + sin(self.time_passed / 40 + 2 * pi / 6 * i - pi / 20) * (mc_size + 5),
+                    )
+                ])
+            surface.blit(pygame.transform.scale(self.surface,surface.get_size()),(0,0))
+
+            pygame.display.update()
