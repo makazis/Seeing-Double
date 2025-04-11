@@ -71,6 +71,16 @@ small_buff_icons={
 dis_buff_icons={
     i:pygame.transform.scale(buff_icons[i],(24,24)) for i in buff_icons
 }
+map_icons={
+    "Enemy":icon_sheet.subsurface((32*13,32*53,32,32)),
+    "Elite":icon_sheet.subsurface((32*15,32*53,32,32)),
+    "Shop":icon_sheet.subsurface((0,0,32,32)),
+    "Miniboss":pygame.image.load("Resources/Icons/Miniboss.png")
+}
+
+map_icons={
+    i:pygame.transform.scale(map_icons[i],(64,64)) for i in map_icons
+}
 #pygame.image.save(buff_icons["Weakness"],"sword_test.png")
 
 speeds=[0.5,1,2,4]
