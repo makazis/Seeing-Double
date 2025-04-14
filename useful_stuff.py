@@ -63,7 +63,8 @@ buff_icons={
     "Poison":icon_sheet.subsurface((32*8,32*50,32,32)),
     "Weak":icon_sheet.subsurface((32*1,32*108,32,32)),
     "Energy":mid_energy_icon.subsurface((16,16,32,32)),
-    "Antivenom":pygame.transform.scale_by(icon_sheet.subsurface((32*4,32*44,32,32)),1.5).subsurface((8,8,32,32))
+    "Antivenom":pygame.transform.scale_by(icon_sheet.subsurface((32*4,32*44,32,32)),1.5).subsurface((8,8,32,32)),
+    "Immune":icon_sheet.subsurface((32*11,32*67,32,32)),
 }
 small_buff_icons={
     i:pygame.transform.scale(buff_icons[i],(16,16)) for i in buff_icons
@@ -75,6 +76,8 @@ map_icons={
     "Enemy":icon_sheet.subsurface((32*13,32*53,32,32)),
     "Elite":icon_sheet.subsurface((32*15,32*53,32,32)),
     "Shop":icon_sheet.subsurface((0,0,32,32)),
+    "Unknown":icon_sheet.subsurface((12*32,0,32,32)),
+    "Rest":icon_sheet.subsurface((6*32,32,32,32)),
     "Miniboss":pygame.image.load("Resources/Icons/Miniboss.png")
 }
 
@@ -96,6 +99,18 @@ rarity_weights=[140,50,10,1]
 # Conduit Build (Conduit will increase the ammount of how much more buff you get per each buff applied to you) this makes 37 total cards, should be good for now
 
 helpfull_buffs=["Strength"] #Conduit isn't here, so it doesn't buff itself
-temporal_buffs=["Conduit","Vulnerable","Weak","Poison","Antivenom"] #every turn they lose 1 charge
+temporal_buffs=["Conduit","Vulnerable","Weak","Poison","Antivenom","Immune"] #every turn they lose 1 charge
 conduit_buffs=["Strength","Dexterity","Poison","Vulnerable","Antivenom"]
 ba_frames={} #ported here for accessibility between combats
+
+
+clock=pygame.time.Clock()
+dt=1
+def calculate_dt():
+    global dt
+    clock.tick()
+    dt=clock.get_fps()
+    if dt==0:
+        dt=1
+    dt=60/dt
+    dt=min(dt,4)

@@ -1,0 +1,42 @@
+{
+    "Health":12,
+    "Animations":[
+        {
+            "Sprite Path":"Resources/images/Enemies/Act I/cat.png",
+            "X Center":0,
+            "Y Center":0,
+            "Y Movement":5,
+            "Y Fi":0,
+            "Omega":0.05,
+            "Side":"0"
+        }
+    ],
+    "Attack Pattern":{
+        "Type":"Random",
+        "Attacks":[
+            {
+                "Type":"Multi attack",
+                "Damage":2,
+                "Hits":3,
+                "Weight":1
+            },
+            {
+                "Type":"Buff Self",
+                "Buffs":[
+                    {
+                        "Type":"Strength",
+                        "Value":1
+                    }
+                ],
+                "Weight":0.5
+            },{
+                "Type":"Deal Damage And Block",
+                "Damage":2,
+                "Block":8,
+                "Weight":1
+                
+            }
+        ]
+    },
+    "Display Name":"Scary Cat"
+}

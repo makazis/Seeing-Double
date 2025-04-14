@@ -16,7 +16,6 @@ pygame.mouse.set_visible(False)
 win=pygame.Surface((1920,1080))
 menu_board=Engine.board.Board((screen_width,screen_height))
 run=True
-clock=pygame.time.Clock()
 menu="First"
 
 with open("Resources/save/save.json","r") as f:
@@ -27,12 +26,8 @@ def save_options_prefferences():
         f.write(json.dumps(save_data,indent=2))
 
 while run:
-    clock.tick()
-    dt=clock.get_fps()
-    if dt==0:
-        dt=1
-    dt=60/dt
-    dt=min(dt,4) #limits at 15 fps, then breaks if game runs slower. This is a feature, not a bug, trust
+    calculate_dt() 
+    #limits at 15 fps, then breaks if game runs slower. This is a feature, not a bug, trust
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             run=False

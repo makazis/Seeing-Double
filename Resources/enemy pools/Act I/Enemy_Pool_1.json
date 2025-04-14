@@ -1,0 +1,54 @@
+{
+    "Pool":[
+        {
+            "Weight":1,
+            "Creatures":[
+                {
+                    "Type":"Random Creature",
+                    "Creature Choices":[
+                        {
+                            "id":"dog",
+                            "weight":1.5
+                        },{
+                            "id":"cat",
+                            "weight":1
+                        },{
+                            "id":"rabbit",
+                            "weight":0.5
+                        }
+                    ]
+                },
+                {
+                    "Type":"Random Creature",
+                    "Creature Choices":[
+                        {
+                            "id":"dog",
+                            "weight":1.5
+                        },{
+                            "id":"cat",
+                            "weight":1
+                        },{
+                            "id":"rabbit",
+                            "weight":0.5
+                        }
+                    ]
+                },
+                {
+                    "Type":"Random Creature",
+                    "Creature Choices":[
+                        {
+                            "id":"dog",
+                            "weight":1.5
+                        },{
+                            "id":"cat",
+                            "weight":1
+                        },{
+                            "id":"rabbit",
+                            "weight":0.5
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

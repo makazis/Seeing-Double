@@ -1,0 +1,26 @@
+{
+    "Basic":[
+        {
+            "Max":0,
+            "Weights":[1,0,0,0,0,0],
+            "Enemy Pool":"Easy_Pool_1"
+        },{
+            "Max":6,
+            "Weights":[8,0,0,1,0,7],
+            "Enemy Pool":"Easy_Pool_1"
+        },{
+            "Max":15,
+            "Weights":[8,1,0,1,1.5,7]
+        },{
+            "Max":23,
+            "Weights":[8,1,0.12,1,1.5,7]
+        },{
+            "Max":24,
+            "Weights":[0,0,0,0,1,0]
+        },{
+            "Max":9999,
+            "Weights":[8,1,0.12,1,1.5,7]
+        }
+
+    ]
+}

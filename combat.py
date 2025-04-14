@@ -33,8 +33,8 @@ def combat(surface,parent,save_data):
         "Side":0
     })
     _board.player=pcard_1
-    for i in range(min(8,int(parent.floor**0.35))):
-        new_enemy_card=_board.add_card_to_game("butterfly_"+str(randint(1,6)),"Creature",team=1)
+    for i,_i in enumerate(parent.room.enemies):
+        new_enemy_card=_board.add_card_to_game(_i,"Creature",team=1)
         _board.locations["OnTable"].append({
         "Card":new_enemy_card,
         "Position":[800+i%4*300,300+350*i//4],
@@ -90,8 +90,8 @@ def combat(surface,parent,save_data):
             surface.blit(useful_stuff.render_text(f"dt:  {round(dt,2)}",30,(255,255,0),"comicsansms"),(0,30))
         pygame.display.flip()
     parent.player_hp=pcard_1.parent.hp
-    for i in _board.locations["OnTable"]:
-        if i["Side"]==2:
-            parent.enemy_effects.append((i["Card"].parent.data["Animations"][0]["Sprite Path"],i["Card"].parent.data["Gift"],i["Card"].parent.data["Gift Chance"]))
+    #for i in _board.locations["OnTable"]:
+    #    if i["Side"]==2:
+    #        parent.enemy_effects.append((i["Card"].parent.data["Animations"][0]["Sprite Path"],i["Card"].parent.data["Gift"],i["Card"].parent.data["Gift Chance"]))
     return lost
 #combat(screen)
