@@ -36,7 +36,7 @@ class Map:
             for ii in range(room_count):
                 new_room_pos_x=(1+ii)/(room_count+1)*1800+randint(-64,64)
                 new_room_pos_y=(floors*160+80)-(i*160+40+randint(-52,52))
-                new_room=Room(room_weights=[2,1,0.2,1],pos=(new_room_pos_x,new_room_pos_y))
+                new_room=Room(room_weights=[6,1,0.2,1],pos=(new_room_pos_x,new_room_pos_y))
                 new_room_line.append(new_room)
                 if i>0:
                     while len(new_room.connections)==0:
