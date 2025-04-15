@@ -99,6 +99,7 @@ class Run:
                 if dist(map_board.mouse_pos,(i.pos[0],i.pos[1]-self.camera_map_y))<=43:
                     pygame.draw.circle(map_board.surface,(cq,cq/2+50,100),(i.pos[0],i.pos[1]-self.camera_map_y),43,5)
                     if map_board.click[0]:
+                        pygame.draw.circle(self.map.surface,(55,55,55),(i.pos[0],i.pos[1]),47,5)
                         self.room=i
                         choosing_map_room=False
                 else:
