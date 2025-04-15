@@ -1,0 +1,43 @@
+{
+    "Health":23,
+    "Animations":[
+        {
+            "Sprite Path":"Resources/images/Enemies/Act I/dog.png",
+            "X Center":0,
+            "Y Center":30,
+            "Y Movement":5,
+            "Y Fi":0,
+            "Omega":0.05,
+            "Side":"0"
+        }
+    ],
+    "Attack Pattern":{
+        "Type":"Random",
+        "Attacks":[
+            {
+                "Type":"Deal Damage",
+                "Damage":7,
+                "Weight":1
+            },
+            {
+                "Type":"Buff Self",
+                "Buffs":[
+                    {
+                        "Type":"Strength",
+                        "Value":3
+                    },{
+                        "Type":"Dexterity",
+                        "Value":3
+                    }
+                ],
+                "Weight":0.5
+            },{
+                "Type":"Deal Damage And Block",
+                "Damage":3,
+                "Block":3,
+                "Weight":1
+            }
+        ]
+    },
+    "Display Name":"Big Dog"
+}

@@ -1,0 +1,23 @@
+{
+    "Type":"Skill",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Conduit",
+                        "Value":2
+                    }
+                ]
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Channel",
+        "Description":"Apply 2 Conduit"
+    }
+}

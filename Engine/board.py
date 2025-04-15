@@ -29,6 +29,7 @@ class Board:
         self.ctimer=[0,0,0]
         self.mcctimer=0
         self.click=[False,False,False] #Can accurately detect the first frame when the mouse button is clicked
+        self.mouse_scroll=0
         self.game_over=False
         self.open_GUIs={}
 
@@ -189,12 +190,16 @@ class Board:
                 self.end_turn()
         if button.display_button("Deck",bpc=(244,144,224),click=self.click,surface=self.surface,mouse_pos=self.mouse_pos,x=30,y=50) or self.keys[pygame.K_c]:
             self.display_deck(self.deck,screen)
+        self.display_mouse_cursor()
+    def display_mouse_cursor(self,surface=None):
+        if surface==None:
+            surface=self.surface
         mc_size=10-(min(self.mcctimer/6,1)/1)**2*8 #adding a smooth easing motion for more fun
         for i in range(6):
             r = abs(cos(self.time_passed / 40 + pi / 3 * i)) * 255
             g = abs(cos(self.time_passed / 40 + pi / 3 * i)) * 255
             b = abs(cos(self.time_passed / 40 + pi / 3 * i)) * 255
-            pygame.draw.polygon(self.surface, (r, g, b), [
+            pygame.draw.polygon(surface, (r, g, b), [
                 (
                     self.mouse_pos[0] + cos(self.time_passed / 40 + 2 * pi / 6 * i) * mc_size,
                     self.mouse_pos[1] + sin(self.time_passed / 40 + 2 * pi / 6 * i) * mc_size,
@@ -232,6 +237,13 @@ class Board:
             else:
                 self.mcctimer=0
         self.keys=pygame.key.get_pressed()
+        self.mouse_scroll=0
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                exit()
+            if event.type==pygame.MOUSEWHEEL:
+                self.mouse_scroll=event.y
+                #print(self.mouse_scroll)
     def add_card_to_game(self,plain_card_id,plain_card_type="Creature",prime=True,**kwargs): #Adds a new card to the game, returns the created card
         new_card=Card() 
 

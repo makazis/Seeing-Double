@@ -1,6 +1,6 @@
 {
     "Type":"Attack",
-    "Target":"Single",
+    "Target":"Any",
     "Energy Cost":1,
     "Rarity":"Common",
     "Effects":{

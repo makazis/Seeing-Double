@@ -1,0 +1,26 @@
+{
+    "Type":"Attack",
+    "Target":"All Enemies",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":1
+            },{
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Poison",
+                        "Value":4
+                    }
+                ]
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Acid Rain",
+        "Description":"Deal 1 damage and apply 4 Poison to all enemies"
+    }
+}

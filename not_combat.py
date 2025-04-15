@@ -19,7 +19,7 @@ def not_combat(surface,parent,save_data):
     menu_board=Board((screen_width,screen_height))
     clock=pygame.time.Clock()
     menu="Main"
-    card_selection=CardReward()
+    card_selection=CardReward(3,parent)
     card_is_selected=False
     while nc_menu_is_running:
         clock.tick()
@@ -93,12 +93,12 @@ def not_combat(surface,parent,save_data):
         pygame.display.update()
     parent.player_hp+=parent.player_hp_healed
 class CardReward:
-    def __init__(self,cards=3):
+    def __init__(self,cards=3,parent=None):
         self.cards=[]
         for i in range(cards):
             card_isnt_selected=True
             while card_isnt_selected:
-                rarity_1=choices([i for i in range(len(rarities))],rarity_weights)[0]
+                rarity_1=choices([i for i in range(len(rarities))],parent.rarity_weights)[0]
                 if len(card_pools[rarity_1])>0:
                     card_1=choice(card_pools[rarity_1])
                     card_isnt_selected=False

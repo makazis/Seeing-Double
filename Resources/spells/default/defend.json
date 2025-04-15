@@ -1,6 +1,6 @@
 {
     "Type":"Skill",
-    "Target":"Self",
+    "Target":"Any",
     "Energy Cost":1,
     "Display Name":"Defend",
     "Not In Pool":{},
@@ -14,6 +14,6 @@
     },
     "Card Data":{
         "Name":"Defend",
-        "Description":"Gain 5 block"
+        "Description":"Apply 5 block"
     }
 }

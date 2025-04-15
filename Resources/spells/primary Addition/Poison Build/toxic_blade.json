@@ -7,7 +7,7 @@
         "On Play":[
             {
                 "Type":"Deal Damage",
-                "Damage":6
+                "Damage":8
             },{
                 "Type":"Flip To Side",
                 "Side":"toxic_blade_2"
@@ -22,6 +22,6 @@
     },
     "Card Data":{
         "Name":"Acidic Blade",
-        "Description":"Deal 6 damage. Transform: Acid Blade"
+        "Description":"Deal 8 damage. Transform: Acid Blade"
     }
 }

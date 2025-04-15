@@ -11,7 +11,7 @@
                 "Buffs":[
                     {
                         "Type":"Poison",
-                        "Value":6
+                        "Value":8
                     }
                 ]
             },{
@@ -28,6 +28,6 @@
     },
     "Card Data":{
         "Name":"Acid Blade",
-        "Description":"Apply 6 Poison . Transform: Acidic Blade"
+        "Description":"Apply 8 Poison . Transform: Acidic Blade"
     }
 }
