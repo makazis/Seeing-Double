@@ -1,6 +1,6 @@
 {
-    "Type":"Attack",
-    "Target":"Any",
+    "Type":"Skill",
+    "Target":"Self",
     "Energy Cost":1,
     "Rarity":"Common",
     "Effects":{
@@ -9,15 +9,15 @@
                 "Type":"Apply Buff",
                 "Buffs":[
                     {
-                        "Type":"Poison",
+                        "Type":"Hot",
                         "Value":3
                     }
                 ]
-            }
+                }
         ]
     },
     "Card Data":{
-        "Name":"Poisoned Dagger",
-        "Description":"Deal 6 damage, Apply 3 Poison"
+        "Name":"Heat Up",
+        "Description":"Gain 3 Hot"
     }
 }

@@ -11,7 +11,10 @@ buff_tip_texts={
     "Dexterity":  "Blocking moves from creatures with X Dexterity gain X aditional block" ,
     "Conduit":    "ALL other buffs and debuffs apply X additional charges, if a creature has X Conduit ",
 
-    "Antivenom": "While you have Antivenom , you don't take damage from Poison "
+    "Antivenom": "While you have Antivenom , you don't take damage from Poison ",
+    "Immune": "Creatures with X Immune can't take combat damage, for X turns",
+    "Cold": "Cold : Negates X Hot , reduced by 1 each turn",
+    "Hot": "Hot : Negates X Cold , reduced by 1 each turn"
 }
 textify_memory={}
 def textify(text,border=200,color=(205,205,205)):
