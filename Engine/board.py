@@ -439,7 +439,6 @@ class Board:
                     
                     if type(i["Value"])==dict:
                         added_value=self.prime_caster.variables[i["Value"]["Variable"]]
-                        
                     else:
                         added_value=i["Value"]
                     ii.buffs[i["Type"]]+=added_value
