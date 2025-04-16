@@ -1,5 +1,5 @@
 {
-    "Health":12,
+    "Health":5,
     "Animations":[
         {
             "Sprite Path":"Resources/images/Enemies/Act I/rabbit.png",
@@ -16,7 +16,7 @@
         "Attacks":[
             {
                 "Type":"Deal Damage",
-                "Damage":7,
+                "Damage":6,
                 "Weight":1
             },
             {
@@ -32,12 +32,11 @@
         ]
     },
     "Start Of Game Effect":{
-        
-            "Type":"Buff Self",
+            "Type":"Apply Buff",
             "Buffs":[
                 {
                     "Type":"Immune",
-                    "Value":2
+                    "Value":3
                 }
             ]
         

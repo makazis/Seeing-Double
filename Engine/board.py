@@ -439,15 +439,34 @@ class Board:
                     
                     if type(i["Value"])==dict:
                         added_value=self.prime_caster.variables[i["Value"]["Variable"]]
-                        
                     else:
                         added_value=i["Value"]
-                    ii.buffs[i["Type"]]+=added_value
+                    
                     if "Conduit" in ii.buffs and i["Type"] in conduit_buffs:
                         if added_value<0:
-                            ii.buffs[i["Type"]]+=-ii.buffs["Conduit"]
+                            added_value+=-ii.buffs["Conduit"]
                         else:
-                            ii.buffs[i["Type"]]+=ii.buffs["Conduit"]
+                            added_value+=ii.buffs["Conduit"]
+                    if i["Type"]=="Hot" and "Cold" in ii.buffs:
+                        ii.buffs["Cold"]-=added_value
+                        if ii.buffs["Cold"]<0:
+                            ii.buffs["Hot"]=-ii.buffs["Cold"]
+                        elif ii.buffs["Cold"]==0:
+                            del ii.buffs["Hot"]
+                        if ii.buffs["Cold"]<=0:
+                            del ii.buffs["Cold"]
+                    elif i["Type"]=="Cold" and "Hot" in ii.buffs:
+                        ii.buffs["Hot"]-=added_value
+                        if ii.buffs["Hot"]<0:
+                            print(ii.buffs["Hot"],ii.buffs["Cold"])
+                            ii.buffs["Cold"]=-ii.buffs["Hot"]
+                        elif ii.buffs["Hot"]==0:
+                            del ii.buffs["Cold"]
+                        if ii.buffs["Hot"]<=0:
+                            del ii.buffs["Hot"]
+                    
+                    else:
+                        ii.buffs[i["Type"]]+=added_value
         if effect["Type"]=="Gain Energy":
             self.energy+=effect["Energy"]
         if effect["Type"]=="Set Target":

@@ -1,0 +1,39 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":4
+            },{
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Cold",
+                        "Value":2
+                    }
+                ]
+            },
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Property":"Buff",
+                "Buff":"Cold",
+                "Variable":"Cold_On_Them"
+            },
+            {
+                "Type":"Deal Damage",
+                "Damage":{
+                    "Variable":"Cold_On_Them"
+                }
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Frosty Dagger",
+        "Description":"Deal 4 damage. Apply 2 Cold . Deal damage equal to their Cold"
+    }
+}

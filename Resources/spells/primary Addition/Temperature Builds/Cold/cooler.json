@@ -1,0 +1,23 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Cold",
+                        "Value":3
+                    }
+                ]
+                }
+        ]
+    },
+    "Card Data":{
+        "Name":"Cool Down",
+        "Description":"Gain 3 Cold"
+    }
+}

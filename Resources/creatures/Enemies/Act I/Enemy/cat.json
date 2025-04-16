@@ -15,7 +15,7 @@
         "Type":"Random",
         "Attacks":[
             {
-                "Type":"Multi attack",
+                "Type":"Multi Attack",
                 "Damage":2,
                 "Hits":3,
                 "Weight":1
@@ -33,7 +33,7 @@
                 "Type":"Deal Damage And Block",
                 "Damage":2,
                 "Block":8,
-                "Weight":1
+                "Weight":0.33
                 
             }
         ]

@@ -2,7 +2,7 @@
     "Type":"Attack",
     "Target":"Single",
     "Energy Cost":1,
-    "Rarity":"Rare",
+    "Rarity":"Common",
     "Effects":{
         "On Play":[
             {

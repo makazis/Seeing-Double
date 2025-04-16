@@ -40,6 +40,7 @@ class Creature:
         self.antivenom_color=(65,156,65)
         self.variables={}
         self.board=None
+        self.turns=0
         if "team" in kwargs:
             self.team=kwargs["team"]
         if self.team==0:
@@ -51,6 +52,7 @@ class Creature:
             self.sec_hp_color=(125,0,255)
             self.attacks=self.data["Attack Pattern"]
             self.enemy=None
+        
     def draw(self,delta=1):
         if self.card!=None:
             self.b_timer+=delta
@@ -105,11 +107,14 @@ class Creature:
                 if self.block<=0:
                     self.board.check_for_powers("Lose All Block")
             else:
-                was_unblocked=True
-                self.hp-=damage
+                
+                if not "Immune" in self.buffs:
+                    self.hp-=damage
+                    was_unblocked=True
             if self.block<0:
-                was_unblocked=True
-                self.hp+=self.block
+                if not "Immune" in self.buffs:
+                    was_unblocked=True
+                    self.hp+=self.block
 
             if self.hp<=0:
                 self.alive=False
@@ -118,7 +123,13 @@ class Creature:
             return was_unblocked,
         return was_unblocked,
     def turn_start(self):
+        self.turns+=1
         if self.team==1:
+            if self.turns==1:
+                if "Start Of Game Effect" in self.data:
+                    self.board.targets=[self]
+                    self.board.prime_caster=self
+                    self.board.run_effect(self.data["Start Of Game Effect"])
             if self.attacks["Type"]=="Random":
                 self.prime_action=choices(self.attacks["Attacks"],[i["Weight"] for i in self.attacks["Attacks"]])[0]
             self.update_action()

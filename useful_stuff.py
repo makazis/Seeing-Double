@@ -65,6 +65,9 @@ buff_icons={
     "Energy":mid_energy_icon.subsurface((16,16,32,32)),
     "Antivenom":pygame.transform.scale_by(icon_sheet.subsurface((32*4,32*44,32,32)),1.5).subsurface((8,8,32,32)),
     "Immune":icon_sheet.subsurface((32*11,32*67,32,32)),
+    "Hot":icon_sheet.subsurface((0,32*62,32,32)),
+    "Cold":icon_sheet.subsurface((0,32*63,32,32)),
+    
 }
 small_buff_icons={
     i:pygame.transform.scale(buff_icons[i],(16,16)) for i in buff_icons
@@ -99,8 +102,8 @@ rarity_weights=[140,50,10,1]
 # Conduit Build (Conduit will increase the ammount of how much more buff you get per each buff applied to you) this makes 37 total cards, should be good for now
 
 helpfull_buffs=["Strength"] #Conduit isn't here, so it doesn't buff itself
-temporal_buffs=["Conduit","Vulnerable","Weak","Poison","Antivenom","Immune"] #every turn they lose 1 charge
-conduit_buffs=["Strength","Dexterity","Poison","Vulnerable","Antivenom"]
+temporal_buffs=["Conduit","Vulnerable","Weak","Poison","Antivenom","Immune","Hot","Cold"] #every turn they lose 1 charge
+conduit_buffs=["Strength","Dexterity","Poison","Vulnerable","Antivenom","Hot","Cold"]
 ba_frames={} #ported here for accessibility between combats
 
 
