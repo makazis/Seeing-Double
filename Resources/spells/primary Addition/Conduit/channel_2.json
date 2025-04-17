@@ -1,0 +1,26 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":3,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Conduit",
+                        "Value":8
+                    }
+                ]
+            }
+        ]
+    },
+    "Attributes":{
+        "Exhaust":1
+    },
+    "Card Data":{
+        "Name":"Avatar",
+        "Description":"Gain 8 Conduit , Hallucinatio"
+    }
+}

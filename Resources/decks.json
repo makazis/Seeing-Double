@@ -29,16 +29,7 @@
             "ID":"bash"
         },{
             "Type":"Spell",
-            "ID":"cold_blade"
-        },{
-            "Type":"Spell",
-            "ID":"cold_blade"
-        },{
-            "Type":"Spell",
-            "ID":"cold_blade"
-        },{
-            "Type":"Spell",
-            "ID":"cold_blade"
+            "ID":"channel_2"
         }
     ]
 }
