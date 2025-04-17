@@ -1,0 +1,44 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Property":"Buff",
+                "Buff":"Hot",
+                "Variable":"Hot_On_Them"
+            },
+            {
+                "Type":"If",
+                "Property 1":"Variable",
+                "Variable 1":"Hot_On_Them",
+                "Against":"Int",
+                "Int":6,
+                "Sign":">",
+                "Then":[
+                    {
+                        "Type":"Apply Buff",
+                        "Buffs":[
+                            {
+                                "Type":"Vulnerable",
+                                "Value":2
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Type":"Deal Damage",
+                "Damage":4
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Roast",
+        "Description":"At least 7 Hot : apply 2 Vulnerable. Deal 4 damage"
+    }
+}

@@ -29,16 +29,28 @@
             "ID":"bash"
         },{
             "Type":"Spell",
-            "ID":"cold_blade"
+            "ID":"hot_blade"
         },{
             "Type":"Spell",
-            "ID":"cold_blade"
+            "ID":"hot_blade"
         },{
             "Type":"Spell",
-            "ID":"cold_blade"
+            "ID":"hot_blade"
         },{
             "Type":"Spell",
-            "ID":"cold_blade"
+            "ID":"hot_blade"
+        },{
+            "Type":"Spell",
+            "ID":"roast"
+        },{
+            "Type":"Spell",
+            "ID":"frost_shield"
+        },{
+            "Type":"Spell",
+            "ID":"cooler"
+        },{
+            "Type":"Spell",
+            "ID":"frost_resonanse"
         }
     ]
 }

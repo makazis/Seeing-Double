@@ -1,0 +1,48 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Property":"Buff",
+                "Buff":"Cold",
+                "Variable":"cold_on_me"
+            },
+            {
+                "Type":"If",
+                "Property 1":"Variable",
+                "Variable 1":"cold_on_me",
+                "Against":"Int",
+                "Int":4,
+                "Sign":">",
+                "Then":[
+                    {
+                        "Type":"Apply Buff",
+                        "Buffs":[
+                            {
+                                "Type":"Dexterity",
+                                "Value":2
+                            },
+                            {
+                                "Type":"Conduit",
+                                "Value":1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Type":"Draw Cards",
+                "Cards Drawn":1
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Frozen Resonanse",
+        "Description":"At least 5 Cold on me : gain 2 Dexterity and 1 Conduit, draw 1 card"
+    }
+}

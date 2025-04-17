@@ -1,0 +1,29 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Target":"Self",
+                "Property":"Buff",
+                "Buff":"Cold",
+                "Variable":"cold_on_me"
+            },
+            {
+                "Type":"Gain Block",
+                "Block":{
+                    "Variable":"cold_on_me"
+                }
+            }
+        ]
+    },
+    
+    "Card Data":{
+        "Name":"Frozen Over",
+        "Description":"Gain block equal to my Cold ."
+    }
+}

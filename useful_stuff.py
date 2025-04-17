@@ -102,7 +102,7 @@ rarity_weights=[140,50,10,1]
 # Conduit Build (Conduit will increase the ammount of how much more buff you get per each buff applied to you) this makes 37 total cards, should be good for now
 
 helpfull_buffs=["Strength"] #Conduit isn't here, so it doesn't buff itself
-temporal_buffs=["Conduit","Vulnerable","Weak","Poison","Antivenom","Immune","Hot","Cold"] #every turn they lose 1 charge
+temporal_buffs=["Conduit","Vulnerable","Weak","Poison","Antivenom","Immune"] #every turn they lose 1 charge
 conduit_buffs=["Strength","Dexterity","Poison","Vulnerable","Antivenom","Hot","Cold"]
 ba_frames={} #ported here for accessibility between combats
 
