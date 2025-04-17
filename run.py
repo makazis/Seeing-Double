@@ -37,7 +37,8 @@ class Run:
                 if self.player_hp>0:
                     self.player_hp_healed=min(90-self.player_hp,10)
                     not_combat(surface,self,save_data)
-            self.choose_map_path()
+            if self.player_hp>0:
+                self.choose_map_path()
     def choose_map_path(self,first=False):
         if first:
             possible_rooms=self.map.rooms[0]

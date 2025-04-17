@@ -12,7 +12,7 @@
                 "Type":"Apply Buff",
                 "Buffs":[
                     {
-                        "Type":"Cold",
+                        "Type":"Hot",
                         "Value":2
                     }
                 ]
@@ -21,19 +21,19 @@
                 "Type":"Assign Variable",
                 "Select":"Property",
                 "Property":"Buff",
-                "Buff":"Cold",
-                "Variable":"Cold_On_Them"
+                "Buff":"Hot",
+                "Variable":"Hot_On_Them"
             },
             {
                 "Type":"Deal Damage",
                 "Damage":{
-                    "Variable":"Cold_On_Them"
+                    "Variable":"Hot_On_Them"
                 }
             }
         ]
     },
     "Card Data":{
-        "Name":"Frosty Dagger",
-        "Description":"Deal 4 damage. Apply 2 Cold . Deal damage equal to their Cold"
+        "Name":"Heated Dagger",
+        "Description":"Deal 4 damage. Apply 2 Hot . Deal damage equal to their Hot"
     }
 }

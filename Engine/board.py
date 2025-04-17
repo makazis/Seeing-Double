@@ -344,7 +344,7 @@ class Board:
     #Warning: No Return after this
 
     #You are now entering the wastelands
-    #Population: 2 of my braincells (currently)
+    #Population: 5 of my braincells (currently)
 
 
     def play_a_card(self,card,target=None,prime=True):
@@ -381,22 +381,7 @@ class Board:
     def run_effect(self,effect):
         print(self.targets[0].id,effect)
         #print(effect)
-        if effect["Type"]=="Multiple Effects":
-            for i in effect["Effects"]:
-                self.run_effect(i)
-        if effect["Type"]=="Modify Global Variable":
-            if not effect["Name"] in self.data:
-                self.data[effect["Name"]]=0
-            if effect["Operation"]=="+":
-                self.data[effect["Name"]]+=effect["Value"]
-            if effect["Operation"]=="-":
-                self.data[effect["Name"]]-=effect["Value"]
-            if effect["Operation"]=="*":
-                self.data[effect["Name"]]*=effect["Value"]
-                self.data[effect["Name"]]=round(self.data[effect["Name"]],2)
-            if effect["Operation"]=="/":
-                self.data[effect["Name"]]/=effect["Value"]
-                self.data[effect["Name"]]=round(self.data[effect["Name"]],2)
+        #Basic card effects
         if effect["Type"]=="Draw Cards":
             for i in range(effect["Cards Drawn"]):
                 self.draw_a_card()
@@ -469,6 +454,33 @@ class Board:
                         ii.buffs[i["Type"]]+=added_value
         if effect["Type"]=="Gain Energy":
             self.energy+=effect["Energy"]
+        
+        if effect["Type"]=="Give HP":
+            
+            for target in self.targets:
+                target.max_hp+=effect["HP"]
+                target.hp+=effect["HP"]
+
+
+        #Logic Elements
+        if effect["Type"]=="Multiple Effects":
+            for i in effect["Effects"]:
+                self.run_effect(i)
+        
+        if effect["Type"]=="Modify Global Variable":
+            if not effect["Name"] in self.data:
+                self.data[effect["Name"]]=0
+            if effect["Operation"]=="+":
+                self.data[effect["Name"]]+=effect["Value"]
+            if effect["Operation"]=="-":
+                self.data[effect["Name"]]-=effect["Value"]
+            if effect["Operation"]=="*":
+                self.data[effect["Name"]]*=effect["Value"]
+                self.data[effect["Name"]]=round(self.data[effect["Name"]],2)
+            if effect["Operation"]=="/":
+                self.data[effect["Name"]]/=effect["Value"]
+                self.data[effect["Name"]]=round(self.data[effect["Name"]],2)
+        
         if effect["Type"]=="Set Target":
             self.targets=[]
             if effect["Target"]=="Self":
@@ -477,13 +489,8 @@ class Board:
                 for i in self.locations["OnTable"]:
                     if i["Side"]==2:
                         self.targets.append(i["Card"].parent)
-                
-        if effect["Type"]=="Give HP":
-            
-            for target in self.targets:
-                target.max_hp+=effect["HP"]
-                target.hp+=effect["HP"]
-        if effect["Type"]=="Assign Variable":
+        
+        if effect["Type"]=="Assign Variable": #TODO: Make this better, more accessible, and usable. 
             if effect["Select"]=="Property":
                 if "Target" in effect:
                     target=self.get_targets(effect["Target"])[0]
@@ -496,10 +503,33 @@ class Board:
                         self.prime_caster.variables[effect["Variable"]]=target.buffs[effect["Buff"]]
                     else:
                         self.prime_caster.variables[effect["Variable"]]=0
+        
+        if effect["Type"]=="If":
+            if effect["Property 1"]=="Variable":
+                challenger=self.prime_caster.variables[effect["Variable 1"]]
+            if effect["Against"]=="Int":
+                is_valid=False
+                if effect["Sign"]==">":
+                    if challenger>effect["Int"]: is_valid=True
+                if effect["Sign"]==">=":
+                    if challenger>=effect["Int"]: is_valid=True
+                if effect["Sign"]=="=":
+                    if challenger==effect["Int"]: is_valid=True
+                if effect["Sign"]=="<":
+                    if challenger<effect["Int"]: is_valid=True
+                if effect["Sign"]=="<=":
+                    if challenger<=effect["Int"]: is_valid=True
+                
+                if is_valid:
+                    for new_effect in effect["Then"]:
+                        self.run_effect(new_effect)
+        
+        #Card Elements
         if effect["Type"]=="Flip Self":
             self.card_played.card.flip_action("Exhaust")
         if effect["Type"]=="Flip To Side":
             self.card_played.card.flip_action("Forced",effect["Side"])
+        
     def get_targets(self,targeting="Self"):
         if type(targeting)==str:
             if targeting=="Self":
