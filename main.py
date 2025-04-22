@@ -2,9 +2,10 @@ import Engine.board
 from Engine.button import *
 import pygame
 import json
-import pygame
 from combat import *
 from run import Run
+
+
 pygame.init()
 
 # Set up the display
@@ -21,16 +22,16 @@ menu="First"
 with open("Resources/save/save.json","r") as f:
     save_data=json.loads(f.read())
     option_prefferences=save_data["Settings Prefferences"]
+
 def save_options_prefferences():
     with open("Resources/save/save.json","w") as f:
         f.write(json.dumps(save_data,indent=2))
-
 while run:
     calculate_dt() 
     #limits at 15 fps, then breaks if game runs slower. This is a feature, not a bug, trust
-    for event in pygame.event.get():
-        if event.type==pygame.QUIT:
-            run=False
+    #for event in pygame.event.get():
+    #    if event.type==pygame.QUIT:
+    #        run=False
     menu_board.update(dt)
     win.fill((25,25,25))
     if menu=="First":
@@ -52,7 +53,7 @@ while run:
         center(render_text("Choose Game Speed",30,(255,255,255),"Consolas"),win,230,100)
         center(render_text(f"Current Game Speed:{str_speeds[option_prefferences['Game Speed']]}",30,(255,255,255),"Consolas"),win,230,140)
         
-        for i in range(4):
+        for i in range(len(speeds)):
             
             if display_button(surface=win,mouse_pos=menu_board.mouse_pos,click=menu_board.click,
                           x=230,y=190+i*50,text=str_speeds[i],size=20,bpc=(55,155,255)):

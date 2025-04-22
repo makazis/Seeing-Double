@@ -60,6 +60,12 @@ def not_combat(surface,parent,save_data):
                         if menu_board.click[0]:
                             card_is_selected=True
                             parent.deck.append(i)
+                            if parent.floor<7:
+                                parent.early_picked_cards.append(i["ID"])
+                            elif parent.floor<17:
+                                parent.middle_picked_cards.append(i["ID"])
+                            else:
+                                parent.late_picked_cards.append(i["ID"])
                             menu="Main"
                         if menu_board.click[2]:
                             i["DC"].flip_action()

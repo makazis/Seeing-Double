@@ -3,6 +3,7 @@
     "Target":"Single",
     "Energy Cost":1,
     "Not In Pool":{},
+    "Image Path":"Resources/images/card_images/default/strike.jpg",
     "Effects":{
         "On Play":[
             {

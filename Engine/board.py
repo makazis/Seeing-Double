@@ -218,6 +218,7 @@ class Board:
                 )
             ])
     def update(self,delta): #Updates the board so that 
+        output=[]
         self.time_passed+=delta
         self.mouse_rel=pygame.mouse.get_rel()
         self.mouse_down=pygame.mouse.get_pressed()
@@ -238,13 +239,15 @@ class Board:
                 self.mcctimer=0
         self.keys=pygame.key.get_pressed()
         self.mouse_scroll=0
-        for event in pygame.event.get():
+        g=pygame.event.get()
+        for event in g:
             if event.type==pygame.QUIT:
                 exit()
             if event.type==pygame.MOUSEWHEEL:
                 self.mouse_scroll=event.y
+        return g
                 #print(self.mouse_scroll)
-    def add_card_to_game(self,plain_card_id,plain_card_type="Creature",prime=True,**kwargs): #Adds a new card to the game, returns the created card
+    def add_card_to_game(self,plain_card_id,plain_card_type="Creature",**kwargs): #Adds a new card to the game, returns the created card
         new_card=Card() 
 
         if plain_card_type=="Spell":
@@ -503,7 +506,8 @@ class Board:
                         self.prime_caster.variables[effect["Variable"]]=target.buffs[effect["Buff"]]
                     else:
                         self.prime_caster.variables[effect["Variable"]]=0
-        
+        if effect["Type"]=="Modify Variable":
+            pass #If i add this, it becomes turing complete 
         if effect["Type"]=="If":
             if effect["Property 1"]=="Variable":
                 challenger=self.prime_caster.variables[effect["Variable 1"]]

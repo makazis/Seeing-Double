@@ -171,4 +171,4 @@ class Map:
                 else:
                     pygame.draw.circle(self.surface,(255,255,255),new_room.pos,10)
                 
-        pygame.image.save(self.surface,"a.png")
+        #pygame.image.save(self.surface,"a.png")

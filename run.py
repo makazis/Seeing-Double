@@ -8,7 +8,7 @@ from Engine.map import Map
 from combat import combat
 from not_combat import not_combat
 from useful_stuff import *
-with open("./Resources/decks.json","r") as read_file:
+with open("./Resources/other/decks.json","r") as read_file:
     default_deck_1=json.loads(read_file.read())["Warrior"]
 class Run:
     def __init__(self,surface,save_data):
@@ -20,14 +20,15 @@ class Run:
         self.player_hp=90
         self.money=99
         self.floor=0
-
+        self.early_picked_cards=[]
+        self.middle_picked_cards=[]
+        self.late_picked_cards=[]
         self.camera_map_y=0
         self.room=0
         with open("Resources/other/map_pools.json","r") as f:
             room_distrib=json.loads(f.read())["Basic"]
         self.map=Map(25,0.9,0.02,room_distrib)
         self.choose_map_path(first=True)
-        self.enemy_effects=[]
         self.player_hp_healed=0
         #not_combat(surface,self,save_data)
         while self.player_hp>0:
@@ -39,6 +40,7 @@ class Run:
                     not_combat(surface,self,save_data)
             if self.player_hp>0:
                 self.choose_map_path()
+        print(self.early_picked_cards,self.middle_picked_cards,self.late_picked_cards)
     def choose_map_path(self,first=False):
         if first:
             possible_rooms=self.map.rooms[0]

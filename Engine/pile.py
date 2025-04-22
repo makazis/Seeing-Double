@@ -106,7 +106,7 @@ class Hand(Pile):
                             dists={}
                             lf_target=self.selected_card.parent.data["Target"]
                             for i in board.locations["OnTable"]:
-                                if i["Side"]==2:
+                                if i["Side"]==2 and i["Card"].parent.alive:
                                     if lf_target in ["Single","Any"]:
                                         distance=dist(i["Position"],(self.selected_card.vector_space_element.x,self.selected_card.vector_space_element.y))
                                         dists[distance]=i

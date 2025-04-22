@@ -4,6 +4,7 @@
     "Energy Cost":1,
     "Rarity":"Uncommon",
     "Not In Pool":{},
+    "Image Path":"Resources/images/card_images/poison_build/acid_dagger_2.jpg",
     "Effects":{
         "On Play":[
             {

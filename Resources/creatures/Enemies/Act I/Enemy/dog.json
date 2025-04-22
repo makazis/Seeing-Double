@@ -1,5 +1,5 @@
 {
-    "Health":2300,
+    "Health":23,
     "Animations":[
         {
             "Sprite Path":"Resources/images/Enemies/Act I/dog.png",
@@ -24,10 +24,10 @@
                 "Buffs":[
                     {
                         "Type":"Strength",
-                        "Value":3
+                        "Value":2
                     },{
                         "Type":"Dexterity",
-                        "Value":3
+                        "Value":2
                     }
                 ],
                 "Weight":0.5

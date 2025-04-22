@@ -16,7 +16,7 @@
         "Attacks":[
             {
                 "Type":"Multi Attack",
-                "Damage":2,
+                "Damage":1,
                 "Hits":3,
                 "Weight":1
             },
@@ -25,7 +25,7 @@
                 "Buffs":[
                     {
                         "Type":"Strength",
-                        "Value":1
+                        "Value":2
                     }
                 ],
                 "Weight":0.5
