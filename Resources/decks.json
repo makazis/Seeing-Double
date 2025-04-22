@@ -29,9 +29,6 @@
             "ID":"bash"
         },{
             "Type":"Spell",
-<<<<<<< HEAD
-            "ID":"channel_2"
-=======
             "ID":"hot_blade"
         },{
             "Type":"Spell",
@@ -54,7 +51,6 @@
         },{
             "Type":"Spell",
             "ID":"frost_resonanse"
->>>>>>> 0db424405846428617e56637de718d4c1da4d554
         }
     ]
 }
