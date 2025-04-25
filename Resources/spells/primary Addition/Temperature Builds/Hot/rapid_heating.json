@@ -1,0 +1,40 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Property":"Buff",
+                "Buff":"Hot",
+                "Variable":"Hot_On_Me"
+            },
+            {
+                "Type":"If",
+                "Property 1":"Variable",
+                "Variable 1":"Hot_On_Me",
+                "Against":"Int",
+                "Int":0,
+                "Sign":"==",
+                "Then":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Hot",
+                        "Value":6
+                    }
+                        ]
+                    }
+                        ]
+        }
+    ]
+    },
+    "Card Data":{
+        "Name":"Rapid Heating",
+        "Description":"If you have no Hot , Gain 6 Hot"
+    }
+}

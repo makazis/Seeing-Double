@@ -184,8 +184,13 @@ class Board:
 
         #pygame.draw.rect(self.surface,(91,40,22),(90,860-self.energy*20,20,self.energy*20),3,10)
         if self.p_turn:
-            for i in range(self.energy):
-                center(large_energy_icon,self.surface,50+i*50,850)
+            if self.energy<6:
+                for i in range(self.energy):
+                    center(large_energy_icon,self.surface,50+i*50,850)
+            else:
+                center(large_energy_icon,self.surface,50,850)
+                center(render_text(self.energy,30,(255,255,255),"Consolas"),self.surface,80,850)
+                
             if button.display_button("end turn",bpc=(91,40,22),click=self.click,surface=self.surface,mouse_pos=self.mouse_pos,x=100,y=800) or self.keys[pygame.K_e]:
                 self.end_turn()
         if button.display_button("Deck",bpc=(244,144,224),click=self.click,surface=self.surface,mouse_pos=self.mouse_pos,x=30,y=50) or self.keys[pygame.K_c]:
@@ -271,7 +276,9 @@ class Board:
             new_object_manager.card=new_card
             new_object_manager.draw() #Draws the new card at the start, so it is visible at all
             new_card.parent=new_object_manager #Also attributes the parent to whatever is locked inside the card
-        
+            if new_object_manager.deck!=None:
+                self.setup_card_pile("Temp",(-99999999999999999,0))
+                self.import_deck([""],"Temp")
         
         return new_object_manager.card
         
@@ -492,7 +499,8 @@ class Board:
                 for i in self.locations["OnTable"]:
                     if i["Side"]==2:
                         self.targets.append(i["Card"].parent)
-        
+            if effect["Target"]=="Random Enemy":
+                self.targets.append(choice([i["Card"].parent for i in self.locations["OnTable"] if i["Side"]==2]))
         if effect["Type"]=="Assign Variable": #TODO: Make this better, more accessible, and usable. 
             if effect["Select"]=="Property":
                 if "Target" in effect:
@@ -517,7 +525,7 @@ class Board:
                     if challenger>effect["Int"]: is_valid=True
                 if effect["Sign"]==">=":
                     if challenger>=effect["Int"]: is_valid=True
-                if effect["Sign"]=="=":
+                if effect["Sign"]=="==":
                     if challenger==effect["Int"]: is_valid=True
                 if effect["Sign"]=="<":
                     if challenger<effect["Int"]: is_valid=True

@@ -41,6 +41,7 @@ class Creature:
         self.variables={}
         self.board=None
         self.turns=0
+        self.deck=None
         if "team" in kwargs:
             self.team=kwargs["team"]
         if self.team==0:
@@ -52,7 +53,10 @@ class Creature:
             self.sec_hp_color=(125,0,255)
             self.attacks=self.data["Attack Pattern"]
             self.enemy=None
-        
+            if self.attacks["Type"]=="Card Based":
+                self.max_energy=self.attacks["Energy"]
+                self.deck=[]
+                self.discard=[]
     def draw(self,delta=1):
         if self.card!=None:
             self.b_timer+=delta
@@ -132,6 +136,23 @@ class Creature:
                     self.board.run_effect(self.data["Start Of Game Effect"])
             if self.attacks["Type"]=="Random":
                 self.prime_action=choices(self.attacks["Attacks"],[i["Weight"] for i in self.attacks["Attacks"]])[0]
+            elif self.attacks["Type"]=="Card Based":
+                self.energy=self.max_energy
+                self.cards_played=[]
+                while self.energy>0:
+                    if len(self.deck)==0:
+                        self.deck=self.discard.copy()
+                        self.discard=[]
+                    new_card=choice(self.deck)
+                    self.deck.remove(new_card)
+                    self.discard.append(new_card)
+                    if new_card.test_play_availability(self.energy,self):
+                        self.energy-=new_card.data["Energy Cost"]
+                        if "Buff Cost" in new_card.data:
+                            for i in new_card.data["Buff Cost"]:
+                                self.buffs[i]-=new_card.data["Buff Cost"][i]
+                                if self.buffs[i]==0:
+                                    del self.buffs[i]
             self.update_action()
         else:
             pass
@@ -156,25 +177,27 @@ class Creature:
             del self.buffs[i]
         
     def update_action(self):
-        if self.team==1:
-            self.action=self.prime_action.copy()
-            if self.action["Type"] in ["Deal Damage","Deal Damage And Block","Multi Attack"]:
-                self.action["Damage Displayed"]=self.action["Damage"]
-                if "Strength" in self.buffs:
-                    self.action["Damage Displayed"]+=self.buffs["Strength"]
-                if "Vulnerable" in self.enemy.buffs:
-                    self.action["Damage Displayed"]=int(self.action["Damage Displayed"]*1.5)
-                if "Weak" in self.buffs:
-                    self.action["Damage Displayed"]=int(self.action["Damage Displayed"]*0.75)
-            if self.action["Type"]=="Deal Damage And Block":
-                self.action["Block Displayed"]=self.action["Block"]
-                if "Dexterity" in self.buffs:
-                    self.action["Block Displayed"]+=self.buffs["Dexterity"]
 
-            if not self.alive:
-                self.action={
-                    "Type":"None"
-                }
+        if self.team==1:
+            if self.attacks["Type"] in ["Random"]:
+                self.action=self.prime_action.copy()
+                if self.action["Type"] in ["Deal Damage","Deal Damage And Block","Multi Attack"]:
+                    self.action["Damage Displayed"]=self.action["Damage"]
+                    if "Strength" in self.buffs:
+                        self.action["Damage Displayed"]+=self.buffs["Strength"]
+                    if "Vulnerable" in self.enemy.buffs:
+                        self.action["Damage Displayed"]=int(self.action["Damage Displayed"]*1.5)
+                    if "Weak" in self.buffs:
+                        self.action["Damage Displayed"]=int(self.action["Damage Displayed"]*0.75)
+                if self.action["Type"]=="Deal Damage And Block":
+                    self.action["Block Displayed"]=self.action["Block"]
+                    if "Dexterity" in self.buffs:
+                        self.action["Block Displayed"]+=self.buffs["Dexterity"]
+
+                if not self.alive:
+                    self.action={
+                        "Type":"None"
+                    }
         
     def complete_action(self,board):
         #turn starts

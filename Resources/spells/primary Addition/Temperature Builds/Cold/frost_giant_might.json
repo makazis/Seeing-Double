@@ -1,0 +1,40 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":2,
+    "Rarity":"Common",
+    "Not In Pool":{},
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":5
+            },{
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Cold",
+                        "Value":5
+                    }
+                ]
+            },
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Property":"Buff",
+                "Buff":"Cold",
+                "Variable":"Cold_On_Them"
+            },
+            {
+                "Type":"Deal Damage",
+                "Damage":{
+                    "Variable":"Cold_On_Them"
+                }
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Frosted Bang",
+        "Description":"Deal 5 damage. Apply 5 Cold . Deal damage equal to their Cold"
+    }
+}

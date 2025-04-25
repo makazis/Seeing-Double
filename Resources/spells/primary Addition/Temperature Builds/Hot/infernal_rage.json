@@ -1,0 +1,31 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":0,
+    "Buff Cost":{
+        "Hot":1
+    },
+    "Rarity":"Rare",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Set Target",
+                "Target":"Random Enemy"
+            },
+            {
+                "Type":"Deal Damage",
+                "Damage":4
+            },
+            {
+                "Type":"Replay Self With Cost"
+            }
+        ]
+    },
+    "Visual Symbols":[
+        "X"
+    ],
+    "Card Data":{
+        "Name":"Infernal Rage",
+        "Description":"Deal 4 damage to a random enemy"
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":0,
+    "Buff Cost":{
+        "Cold":3
+    },
+    "Rarity":"Rare",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Set Target",
+                "Target":"Random Enemy"
+            },
+            {
+                "Type":"Deal Damage",
+                "Damage":7
+            },
+            {
+                "Type":"Set Target",
+                "Target":"Self"
+            },
+            {
+                "Type":"Gain Block",
+                "Block":4
+            },
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Dexterity",
+                        "Value":2
+                    }
+                ]
+            },
+            {
+                "Type":"Replay Self With Cost"
+            }
+        ]
+    },
+    "Visual Symbols":[
+        "X"
+    ],
+    "Attributes":{
+        "Exhaust":1
+    },
+    "Card Data":{
+        "Name":"Eternal Winter",
+        "Description":"Deal 7 damage to a random enemy, gain 4 block and 1 Dexterity , Hallucination"
+    }
+}

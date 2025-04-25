@@ -89,3 +89,5 @@ class Spell:
         if "Buff Cost" in self.data:
             for i in self.data["Buff Cost"]:
                 board.player.parent.buffs[i]-=self.data["Buff Cost"][i]
+                if board.player.parent.buffs[i]==0:
+                    del board.player.parent.buffs[i]
