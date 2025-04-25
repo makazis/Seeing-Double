@@ -30,12 +30,11 @@ class Spell:
         if not "Overlay" in self.data:
             self.data["Overlay"]="Standart"
         self.type="Spell"
-        self.inv=False
         self.exhausted=False
         if "Image Path" in self.data:
             if not self.data["Image Path"] in spell_sprite_cache:
                 spell_sprite_cache[self.data["Image Path"]]=pygame.transform.scale(pygame.image.load(self.data["Image Path"]),(170,100))
-    def draw(self,side_on,inv=False):
+    def draw(self,side_on):
         self.card.side_from_surface(cardman.cardSideImages["default-back"], "Back")
         self.card.side_from_surface(pygame.Surface((210,320)),side_on)
         self.card.sides[side_on].fill(card_transparency_color) #Replace this with image handling when the time comes

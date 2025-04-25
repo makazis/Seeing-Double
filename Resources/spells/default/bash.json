@@ -3,6 +3,7 @@
     "Target":"Single",
     "Energy Cost":2,
     "Not In Pool":{},
+    "Image Path":"Resources/images/card_images/default/bash.jpg",
     "Effects":{
         "On Play":[
             {

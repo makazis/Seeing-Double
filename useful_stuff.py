@@ -89,8 +89,8 @@ map_icons={
 }
 #pygame.image.save(buff_icons["Weakness"],"sword_test.png")
 
-speeds=[0.5,1,2,4]
-str_speeds=["Slow","Normal","Quick","Zoom"]
+speeds=[0.5,1,2,4,16]
+str_speeds=["Slow","Normal","Quick","Zoom","ULTRA"]
 
 rarities=["Common", "Uncommon", "Rare","Cursed"]
 rarity_weights=[140,50,10,1]
@@ -117,3 +117,5 @@ def calculate_dt():
         dt=1
     dt=60/dt
     dt=min(dt,4)
+
+is_debugging=True

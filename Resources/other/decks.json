@@ -27,30 +27,6 @@
         },{
             "Type":"Spell",
             "ID":"bash"
-        },{
-            "Type":"Spell",
-            "ID":"hot_blade"
-        },{
-            "Type":"Spell",
-            "ID":"hot_blade"
-        },{
-            "Type":"Spell",
-            "ID":"hot_blade"
-        },{
-            "Type":"Spell",
-            "ID":"hot_blade"
-        },{
-            "Type":"Spell",
-            "ID":"roast"
-        },{
-            "Type":"Spell",
-            "ID":"frost_shield"
-        },{
-            "Type":"Spell",
-            "ID":"cooler"
-        },{
-            "Type":"Spell",
-            "ID":"frost_resonanse"
         }
     ]
 }

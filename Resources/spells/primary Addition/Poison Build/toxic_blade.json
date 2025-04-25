@@ -3,6 +3,7 @@
     "Target":"Any",
     "Energy Cost":1,
     "Rarity":"Uncommon",
+    "Image Path":"Resources/images/card_images/poison_build/acid_dagger.jpg",
     "Effects":{
         "On Play":[
             {

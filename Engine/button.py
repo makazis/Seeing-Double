@@ -56,7 +56,21 @@ class Button:
             center(self.sprite,surface,x,y)
         return official_return
 buttons={}
-def display_button(text="",size=20,bpc=(255,255,255),font="Consolas",bold=False,italic=False,size2=1,border_width=3,border_radius=4,mouse_on_effect=0,surface=None,x=-1000,y=-1000,mouse_pos=[0,0],click=[False for i in range(3)]):
+def display_button(text="",
+                   size=20,
+                   bpc=(255,255,255),
+                   font="Consolas",
+                   bold=False,
+                   italic=False,
+                   size2=1,
+                   border_width=3,
+                   border_radius=4,
+                   mouse_on_effect=0,
+                   surface=None,
+                   x=-1000,
+                   y=-1000,
+                   mouse_pos=[0,0],
+                   click=[False for i in range(3)]):
     button_data=(text,size,bpc,font,bold,italic,size2,border_width,border_radius,mouse_on_effect)
     if not button_data in buttons:
         buttons[button_data]=Button(text,size,bpc,font,bold,italic,size2,border_width,border_radius,mouse_on_effect)

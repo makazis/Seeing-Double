@@ -4,6 +4,7 @@
     "Energy Cost":1,
     "Display Name":"Defend",
     "Not In Pool":{},
+    "Image Path":"Resources/images/card_images/default/defend.jpg",
     "Effects":{
         "On Play":[
             {
