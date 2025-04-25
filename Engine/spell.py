@@ -58,7 +58,7 @@ class Spell:
         self.card.sides[side_on].blit(card_transparency_overlay,(0,0))
         
             #pygame.image.save(self.card.sides[side_on],"t.png")
-        
+        I=-1
         for I in range(self.data["Energy Cost"]):
             center(mid_energy_icon,self.card.sides[side_on],(210-15-I*40),15)
         if "Buff Cost" in self.data:

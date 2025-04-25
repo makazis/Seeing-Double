@@ -1,0 +1,30 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":0,
+    "Buff Cost":{
+        "Poison":2
+    },
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Gain Energy",
+                "Energy":1
+            },
+            {
+                "Type":"Replay Self With Cost"
+            }
+        ]
+    },
+    "Visual Symbols":[
+        "X"
+    ],
+    "Attributes":{
+        "Exhaust":1
+    },
+    "Card Data":{
+        "Name":"Charged Cure",
+        "Description":"Gain 1 energy. Hallucination"
+    }
+}
