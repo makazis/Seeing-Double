@@ -7,7 +7,7 @@
         "On Play":[
             {
                 "Type":"Deal Damage",
-                "Damage":23
+                "Damage":18
             },
             {
                 "Type":"Flip To Side",
@@ -23,6 +23,6 @@
     },
     "Card Data":{
         "Name":"Final Blow",
-        "Description":"Deal 23 Damage. Exhaust"
+        "Description":"Deal 18 Damage. Exhaust"
     }
 }

@@ -1,0 +1,36 @@
+{
+    "Type":"Attack",
+    "Target":"Single",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":6
+            },{
+                "Type":"Trigger Mark",
+                "Then":[
+                    {
+                        "Type":"Deal Damage",
+                        "Damage":10
+                    },
+                    {
+                        "Type":"Trigger Mark",
+                        "Then":[
+                            {
+                                "Type":"Deal Damage",
+                                "Damage":14
+                            }
+                            
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Cascade",
+        "Description":"Deal 6 damage. \n Mark : Deal 14 damage. \n Mark Mark : Deal 26 damage."
+    }
+}

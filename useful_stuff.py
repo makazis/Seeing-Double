@@ -67,7 +67,7 @@ buff_icons={
     "Immune":icon_sheet.subsurface((32*11,32*67,32,32)),
     "Hot":icon_sheet.subsurface((0,32*62,32,32)),
     "Cold":icon_sheet.subsurface((0,32*63,32,32)),
-    
+    "Mark":icon_sheet.subsurface((0,32*48,32,32))
 }
 small_buff_icons={
     i:pygame.transform.scale(buff_icons[i],(16,16)) for i in buff_icons
@@ -83,7 +83,13 @@ map_icons={
     "Rest":icon_sheet.subsurface((6*32,32,32,32)),
     "Miniboss":pygame.image.load("Resources/Icons/Miniboss.png")
 }
-
+visual_icons={
+    "Again":pygame.image.load("Resources/Icons/Again.png"),
+    "X":pygame.image.load("Resources/Icons/X.png")
+}
+visual_icons={
+    i:pygame.transform.scale(visual_icons[i],(16,16)) for i in visual_icons
+}
 map_icons={
     i:pygame.transform.scale(map_icons[i],(64,64)) for i in map_icons
 }

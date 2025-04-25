@@ -14,7 +14,9 @@ buff_tip_texts={
     "Antivenom": "While you have Antivenom , you don't take damage from Poison ",
     "Immune": "Creatures with X Immune can't take combat damage, for X turns",
     "Cold": "Cold : Negates X Hot , reduced by 1 each turn",
-    "Hot": "Hot : Negates X Cold , reduced by 1 each turn"
+    "Hot": "Hot : Negates X Cold , reduced by 1 each turn",
+
+    "Mark":"After Mark is triggered, it is reduced by 1"
 }
 textify_memory={}
 def textify(text,border=200,color=(205,205,205)):
@@ -29,14 +31,23 @@ def textify(text,border=200,color=(205,205,205)):
                 p_x_size=x_size
                 x_size=0
                 for i in split[:iterator]:
-                    if i in buff_icons:
-                        x_size+=16+render_text(" ",15,(205,205,205),"comicsansms",antial= False).get_width()
+                    #print(i)
+                    if i=="\n":
+                        x_size=border
                     else:
-                        x_size+=render_text(i+" ",15,(205,205,205),"comicsansms",antial= False).get_width()
+                        if i in buff_icons:
+                            x_size+=16+render_text(" ",15,(205,205,205),"comicsansms",antial= False).get_width()
+                        else:
+                            x_size+=render_text(i+" ",15,(205,205,205),"comicsansms",antial= False).get_width()
             iterator-=1
-            lines.append((split[:iterator],(210-p_x_size)/2))
-            for i in range(iterator):
-                split.pop(0)
+            if i=="\n":
+                lines.append((split[:iterator],(210-p_x_size)/2))
+                for i in range(iterator+1):
+                    split.pop(0)
+            else:
+                lines.append((split[:iterator],(210-p_x_size)/2))
+                for i in range(iterator):
+                    split.pop(0)
         sprite=pygame.Surface((210,20+20*len( lines)))
         sprite.fill((card_transparency_color))
         sprite.set_colorkey((card_transparency_color))

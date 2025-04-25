@@ -1,29 +1,27 @@
 {
     "Type":"Attack",
-    "Target":"Any",
+    "Target":"Single",
     "Energy Cost":1,
-    "Buff Cost":{
-        "Poison":2
-    },
     "Rarity":"Common",
     "Effects":{
         "On Play":[
             {
                 "Type":"Deal Damage",
-                "Damage":5
-            },{
+                "Damage":6
+            },
+            {
                 "Type":"Apply Buff",
                 "Buffs":[
                     {
-                        "Type":"Poison",
-                        "Value":5
+                        "Type":"Mark",
+                        "Value":1
                     }
                 ]
             }
         ]
     },
     "Card Data":{
-        "Name":"Blade Of Venom",
-        "Description":"Deal 5 damage. Apply 5 Poison ."
+        "Name":"Marking Strike",
+        "Description":"Deal 6 damage. Apply 1 Mark "
     }
 }

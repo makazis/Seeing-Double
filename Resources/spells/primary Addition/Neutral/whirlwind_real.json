@@ -1,0 +1,24 @@
+{
+    "Type":"Attack",
+    "Target":"Single",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":9
+            },
+            {
+                "Type":"Replay Self With Cost"
+            }
+        ]
+    },
+    "Visual Symbols":[
+        "X"
+    ],
+    "Card Data":{
+        "Name":"Several Strikes",
+        "Description":"Deal 9 damage"
+    }
+}

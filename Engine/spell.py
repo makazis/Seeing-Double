@@ -41,9 +41,9 @@ class Spell:
         if "Image Path" in self.data:
             self.card.sides[side_on].blit(spell_sprite_cache[self.data["Image Path"]],(20,20))
         self.card.sides[side_on].blit(overlays[self.data["Overlay"]]["Sprite"],(0,0))
-        center(render_text(self.data["Card Data"]["Name"],14,overlays[i]["Title Color"],"Consolas"),self.card.sides[side_on],105,135)
+        center(render_text(self.data["Card Data"]["Name"],14,overlays[self.data["Overlay"]]["Title Color"],"Consolas"),self.card.sides[side_on],105,135)
         card_desc=self.data["Card Data"]["Description"]
-        self.card.sides[side_on].blit(textify(card_desc,180,overlays[i]["Body Color"]),(0,165))
+        self.card.sides[side_on].blit(textify(card_desc,180,overlays[self.data["Overlay"]]["Body Color"]),(0,165))
         #for I,i in enumerate(card_desc):
         #    y_pos=I-(len(card_desc)-1)/2
         #    center(render_text(i,14,(253,255,255),"Consolas"),self.card.sides[side_on],105,226+y_pos*20)
@@ -58,11 +58,34 @@ class Spell:
         self.card.sides[side_on].blit(card_transparency_overlay,(0,0))
         
             #pygame.image.save(self.card.sides[side_on],"t.png")
+        
         for I in range(self.data["Energy Cost"]):
-            center(mid_energy_icon,self.card.sides[side_on],15+I*40,15)
-"""
-    new_object_manager.
-        new_object_manager.card.side_from_surface(pygame.Surface((210,320)),side_on)
-            new_object_manager.card.sides[side_on].fill((0,0,0)) #Replace this with image handling when the time comes
-    else:
-            new_object_manager.card.side_from_surface(cardSideImages["default-back"], "Back")"""
+            center(mid_energy_icon,self.card.sides[side_on],(210-15-I*40),15)
+        if "Buff Cost" in self.data:
+            X=210-15-I*40
+            for i in self.data["Buff Cost"]:
+                for II in range(self.data["Buff Cost"][i]):
+                    X-=40
+                    center(buff_icons[i],self.card.sides[side_on],X,15)
+        if "Visual Symbols" in self.data:
+            for I,i in enumerate(self.data["Visual Symbols"]):
+                center(visual_icons[i],self.card.sides[side_on],25+I*20,290)
+    def test_play_availability(self,energy,playing_creature=None):
+        if self.data["Energy Cost"]>energy:
+            return False
+        if "Attributes" in self.data:
+            if "Unplayable" in self.data["Attributes"]:
+                return False
+        if "Buff Cost" in self.data:
+            for i in self.data["Buff Cost"]:
+                if i in playing_creature.buffs:
+                    if playing_creature.buffs[i]<self.data["Buff Cost"][i]:
+                        return False
+                else:
+                    return False
+        return True
+    def is_played(self,board):
+        board.energy-=self.data["Energy Cost"]
+        if "Buff Cost" in self.data:
+            for i in self.data["Buff Cost"]:
+                board.player.parent.buffs[i]-=self.data["Buff Cost"][i]

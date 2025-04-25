@@ -1,0 +1,33 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Deal Damage",
+                "Damage":10
+            }, {
+                "Type":"Set Target",
+                "Target":"All Enemies"
+            },{
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Mark",
+                        "Value":2
+                    }
+                ]
+            }
+
+        ]
+    },
+    "Attributes":{
+        "Exhaust":1
+    },
+    "Card Data":{
+        "Name":"Eyes of the deep.",
+        "Description":"Take 10 damage. Apply 2 Mark to all enemies. Hallucination"
+    }
+}

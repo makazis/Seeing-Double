@@ -527,13 +527,26 @@ class Board:
                 if is_valid:
                     for new_effect in effect["Then"]:
                         self.run_effect(new_effect)
-        
+        if effect["Type"]=="Replay Self With Cost":
+            if self.card_played.test_play_availability(self.energy,self.player.parent):
+                self.card_played.is_played(self)
+                self.update_enemy_actions()
+                self.play_a_card(self.card_played,self.targets)
+
         #Card Elements
         if effect["Type"]=="Flip Self":
             self.card_played.card.flip_action("Exhaust")
         if effect["Type"]=="Flip To Side":
             self.card_played.card.flip_action("Forced",effect["Side"])
         
+        #Specific Effects
+        if effect["Type"]=="Trigger Mark":
+            if "Mark" in self.targets[0].buffs:
+                self.targets[0].buffs["Mark"]-=1
+                if self.targets[0].buffs["Mark"]==0:
+                    del self.targets[0].buffs["Mark"]
+                for effect in effect["Then"]:
+                    self.run_effect(effect)
     def get_targets(self,targeting="Self"):
         if type(targeting)==str:
             if targeting=="Self":

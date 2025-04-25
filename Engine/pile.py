@@ -121,9 +121,11 @@ class Hand(Pile):
                                 center(targeting_overlay_surface,board.surface,the_pos[0],the_pos[1])
                                 target=closest["Card"].parent
                             if not board.mouse_down[0]:
-                                if board.energy>=self.selected_card.parent.data["Energy Cost"]:
+                                if self.selected_card.parent.test_play_availability(board.energy,board.player.parent):
+                                #if board.energy>=self.selected_card.parent.data["Energy Cost"]:
+                                    self.selected_card.parent.is_played(board)
                                     board.update_enemy_actions()
-                                    board.energy-=self.selected_card.parent.data["Energy Cost"]
+                                    #board.energy-=self.selected_card.parent.data["Energy Cost"]
                                     board.play_a_card(self.selected_card.parent,target=[target])
                                     if not self.selected_card.parent.exhausted:
                                         board.card_piles["Graveyard"].cards.append(self.selected_card)
