@@ -1,0 +1,25 @@
+{
+    "Type":"Attack",
+    "Target":"Any",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Overlay":"frozen",
+    "Not In Pool":{},
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Cold",
+                        "Value":4
+                    }
+                ]
+            }
+        ]
+    },
+    "Card Data":{
+        "Name":"Glacial Howl",
+        "Description":"Apply 4 Cold"
+    }
+}

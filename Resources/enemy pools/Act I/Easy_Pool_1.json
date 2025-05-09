@@ -34,6 +34,28 @@
                     ]
                 }
             ]
+        },
+        {
+            "Weight":0.5,
+            "Creatures":[
+                {
+                    "Type":"Random Creature",
+                    "Creature Choices":[
+                        {
+                            "id":"frost_wolf",
+                            "weight":1.5
+                        }
+                    ]
+                },{
+                    "Type":"Random Creature",
+                    "Creature Choices":[
+                        {
+                            "id":"frost_wolf",
+                            "weight":1.5
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

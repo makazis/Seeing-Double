@@ -91,3 +91,10 @@ class Spell:
                 board.player.parent.buffs[i]-=self.data["Buff Cost"][i]
                 if board.player.parent.buffs[i]==0:
                     del board.player.parent.buffs[i]
+    def is_played_by_enemy(self,caster):
+        if "Buff Cost" in self.data:
+            for i in self.data["Buff Cost"]:
+                caster.buffs[i]-=self.data["Buff Cost"][i]
+                if caster.buffs[i]==0:
+                    del caster.buffs[i]
+    

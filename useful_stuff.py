@@ -95,7 +95,7 @@ map_icons={
 }
 #pygame.image.save(buff_icons["Weakness"],"sword_test.png")
 
-speeds=[0.5,1,2,4,16]
+speeds=[1,2,4,8,16]
 str_speeds=["Slow","Normal","Quick","Zoom","ULTRA"]
 
 rarities=["Common", "Uncommon", "Rare","Cursed"]

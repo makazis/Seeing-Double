@@ -1,0 +1,18 @@
+{
+    "Pool":[
+        {
+            "Weight":1,
+            "Creatures":[
+                {
+                    "Type":"Random Creature",
+                    "Creature Choices":[
+                        {
+                            "id":"frost_giant",
+                            "weight":1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -21,6 +21,7 @@ class Room:
         self.connections=[]
         self.p_connections=[]
         self.enemy_pool_name="Enemy_Pool_1"
+        self.elite_pool_name="Elite_Pool_1"
     def choose_type(self,room_types=encounter_types,room_weights=None):
         if room_weights==None:
             room_weights=[1 for i in room_types]
@@ -31,7 +32,13 @@ class Room:
             for i in self.enemy_pool["Creatures"]:
                 if i["Type"]=="Random Creature":
                     self.enemies.append(choices(i["Creature Choices"],[ii["weight"] for ii in i["Creature Choices"]])[0]["id"])
-            
+        if self.type=="Elite":
+            self.enemy_pool=choices(enemy_pools[self.elite_pool_name]["Pool"],[i["Weight"] for i in enemy_pools[self.elite_pool_name]["Pool"]])[0]
+            self.enemies=[]
+            for i in self.enemy_pool["Creatures"]:
+                if i["Type"]=="Random Creature":
+                    self.enemies.append(choices(i["Creature Choices"],[ii["weight"] for ii in i["Creature Choices"]])[0]["id"])
+        
 
 def draw_invis_line(surface,color,point_a,point_b,fragments=4,width=3,fragment_density=0.5):
     langle=atan2(point_a[1]-point_b[1],point_a[0]-point_b[0])
@@ -89,7 +96,7 @@ class Map:
                 new_room_pos_y=(floors*160+320)-(i*160+80+randint(-52,52))
                 new_room=Room(pos=(new_room_pos_x,new_room_pos_y))
                 new_room_weights=self.room_weight_distrib[distrib_iterator]["Weights"].copy()
-                if "Enemy Pool" in self.room_weight_distrib[distrib_iterator]: new_room.enemy_pool_name=self.room_weight_distrib[distrib_iterator]["Enemy Pool"];print(i)
+                if "Enemy Pool" in self.room_weight_distrib[distrib_iterator]: new_room.enemy_pool_name=self.room_weight_distrib[distrib_iterator]["Enemy Pool"]
                 new_room_line.append(new_room)
                 if i>0:
                     while len(new_room.connections)==0:

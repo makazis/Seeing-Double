@@ -1,8 +1,8 @@
 {
-    "Health":75,
+    "Health":18,
     "Animations":[
         {
-            "Sprite Path":"Resources/images/Enemies/Act I/frost giant.png",
+            "Sprite Path":"Resources/images/Enemies/Act I/frost wolf.png",
             "X Center":0,
             "Y Center":0,
             "Y Movement":5,
@@ -14,29 +14,22 @@
     "Attack Pattern":{
         "Type":"Card Based",
         "Cards":[
-            "cooler",
-            "cooler",
-            "frost_shield",
-            "frost_giant_might",
-            "frost_giant_might",
-            "frost_shield",
-            "frost_resonanse",
-            "bash",
-            "frost_release",
-            "cooler",
-            "frost_shield"
+            "frostwolf_att_2",
+            "frostwolf_att_2",
+            "frost_scratch",
+            "frost_scratch"
         ],
-        "Energy":3
+        "Energy":1
     },
     "Start Of Game Effect":{
             "Type":"Apply Buff",
             "Buffs":[
                 {
                     "Type":"Cold",
-                    "Value":5
+                    "Value":2
                 }
             ]
         
     },
-    "Display Name":"Frost Giant"
+    "Display Name":"Frost Wolf"
 }

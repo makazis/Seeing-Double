@@ -33,7 +33,7 @@ class Run:
         #not_combat(surface,self,save_data)
         while self.player_hp>0:
             self.floor+=1
-            if self.room.type=="Enemy":
+            if self.room.type in ["Enemy","Elite"]:
                 combat(surface,self,save_data)
                 if self.player_hp>0:
                     self.player_hp_healed=min(90-self.player_hp,10)

@@ -1,21 +1,12 @@
 {
     "Type":"Attack",
     "Target":"Any",
-    "Energy Cost":2,
-    "Rarity":"Uncommon",
+    "Energy Cost":1,
+    "Rarity":"Common",
     "Overlay":"frozen",
     "Not In Pool":{},
     "Effects":{
         "On Play":[
-            {
-                "Type":"Apply Buff",
-                "Buffs":[
-                    {
-                        "Type":"Cold",
-                        "Value":5
-                    }
-                ]
-            },
             {
                 "Type":"Assign Variable",
                 "Select":"Property",
@@ -28,11 +19,20 @@
                 "Damage":{
                     "Variable":"Cold_On_Them"
                 }
+            },
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Hot",
+                        "Value":1
+                    }
+                ]
             }
         ]
     },
     "Card Data":{
-        "Name":"Frosted Bang",
-        "Description":"Apply 5 Cold . Deal damage equal to their Cold"
+        "Name":"Polar Pounce",
+        "Description":"Deal damage equal to their Cold . They gain 1 Hot"
     }
 }
