@@ -33,7 +33,7 @@ class Room:
                 if i["Type"]=="Random Creature":
                     self.enemies.append(choices(i["Creature Choices"],[ii["weight"] for ii in i["Creature Choices"]])[0]["id"])
         if self.type=="Elite":
-            self.enemy_pool=choices(enemy_pools[self.elite_pool_name]["Pool"],[i["Weight"] for i in enemy_pools[self.enemy_pool_name]["Pool"]])[0]
+            self.enemy_pool=choices(enemy_pools[self.elite_pool_name]["Pool"],[i["Weight"] for i in enemy_pools[self.elite_pool_name]["Pool"]])[0]
             self.enemies=[]
             for i in self.enemy_pool["Creatures"]:
                 if i["Type"]=="Random Creature":

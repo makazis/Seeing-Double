@@ -1,0 +1,35 @@
+{
+    "Health":18,
+    "Animations":[
+        {
+            "Sprite Path":"Resources/images/Enemies/Act I/frost wolf.png",
+            "X Center":0,
+            "Y Center":0,
+            "Y Movement":5,
+            "Y Fi":0,
+            "Omega":0.05,
+            "Side":"0"
+        }
+    ],
+    "Attack Pattern":{
+        "Type":"Card Based",
+        "Cards":[
+            "frostwolf_att_2",
+            "frostwolf_att_2",
+            "frost_scratch",
+            "frost_scratch"
+        ],
+        "Energy":1
+    },
+    "Start Of Game Effect":{
+            "Type":"Apply Buff",
+            "Buffs":[
+                {
+                    "Type":"Cold",
+                    "Value":2
+                }
+            ]
+        
+    },
+    "Display Name":"Frost Wolf"
+}

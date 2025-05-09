@@ -6,6 +6,7 @@
         "Cold":3
     },
     "Rarity":"Rare",
+    "Overlay":"frozen",
     "Effects":{
         "On Play":[
             {
