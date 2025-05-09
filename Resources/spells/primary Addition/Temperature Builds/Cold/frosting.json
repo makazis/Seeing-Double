@@ -1,0 +1,27 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":0,
+    "Buff Cost":{
+        "Cold":1
+    },
+    "Rarity":"Uncommon",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Gain Block",
+                "Block":4
+            }
+        ]
+    },
+    "Visual Symbols":[
+        "Again"
+    ],
+    "Attributes":{
+        "Channel":1
+    },
+    "Card Data":{
+        "Name":"Frosting",
+        "Description":"Gain 4 block"
+    }
+}

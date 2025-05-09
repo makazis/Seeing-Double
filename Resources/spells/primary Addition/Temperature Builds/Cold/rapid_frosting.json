@@ -1,0 +1,40 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Assign Variable",
+                "Select":"Property",
+                "Property":"Buff",
+                "Buff":"Cold",
+                "Variable":"Cold_On_Me"
+            },
+            {
+                "Type":"If",
+                "Property 1":"Variable",
+                "Variable 1":"Cold_On_Me",
+                "Against":"Int",
+                "Int":0,
+                "Sign":"==",
+                "Then":[
+            {
+                "Type":"Apply Buff",
+                "Buffs":[
+                    {
+                        "Type":"Cold",
+                        "Value":6
+                    }
+                        ]
+                    }
+                        ]
+        }
+    ]
+    },
+    "Card Data":{
+        "Name":"Rapid Cooling",
+        "Description":"If you have no Cold , Gain 6 Cold"
+    }
+}

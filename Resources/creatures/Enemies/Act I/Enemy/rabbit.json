@@ -4,7 +4,7 @@
         {
             "Sprite Path":"Resources/images/Enemies/Act I/rabbit.png",
             "X Center":0,
-            "Y Center":0,
+            "Y Center":30,
             "Y Movement":5,
             "Y Fi":0,
             "Omega":0.05,

@@ -1,6 +1,6 @@
 {
     "Type":"Attack",
-    "Target":"Any",
+    "Target":"Single",
     "Energy Cost":0,
     "Buff Cost":{
         "Cold":3
@@ -29,7 +29,7 @@
                 "Buffs":[
                     {
                         "Type":"Dexterity",
-                        "Value":2
+                        "Value":1
                     }
                 ]
             },

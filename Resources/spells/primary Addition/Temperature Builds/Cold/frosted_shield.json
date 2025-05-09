@@ -1,0 +1,22 @@
+{
+    "Type":"Skill",
+    "Target":"Self",
+    "Energy Cost":1,
+    "Buff Cost":{
+        "Cold":1
+    },
+    "Rarity":"Common",
+    "Effects":{
+        "On Play":[
+            {
+                "Type":"Gain Block",
+                "Block":12
+            }
+        ]
+    },
+    
+    "Card Data":{
+        "Name":"Chilly Shield",
+        "Description":"Gain 12 block."
+    }
+}

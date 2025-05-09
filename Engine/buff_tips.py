@@ -16,7 +16,7 @@ buff_tip_texts={
     "Cold": "Cold : Negates X Hot , reduced by 1 each turn",
     "Hot": "Hot : Negates X Cold , reduced by 1 each turn",
 
-    "Mark":"After Mark is triggered, it is reduced by 1"
+    "Mark":"Allows other Mark Effects to trigger on this creature. After Mark is triggered, it is reduced by 1"
 }
 textify_memory={}
 def textify(text,border=200,color=(205,205,205)):

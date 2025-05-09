@@ -127,9 +127,14 @@ class Hand(Pile):
                                     board.update_enemy_actions()
                                     #board.energy-=self.selected_card.parent.data["Energy Cost"]
                                     board.play_a_card(self.selected_card.parent,target=[target])
-                                    if not self.selected_card.parent.exhausted:
-                                        board.card_piles["Graveyard"].cards.append(self.selected_card)
-                                    self.cards.remove(self.selected_card)
+                                    is_discarded=True
+                                    if "Attributes" in self.selected_card.parent.data:
+                                        if "Channel" in self.selected_card.parent.data["Attributes"]:
+                                            is_discarded=False
+                                    if is_discarded:
+                                        if not self.selected_card.parent.exhausted:
+                                            board.card_piles["Graveyard"].cards.append(self.selected_card)
+                                        self.cards.remove(self.selected_card)
                                                     
                                 self.selected_card=None
                                 self.card_rendered_on_top=None
