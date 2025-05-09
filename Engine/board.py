@@ -16,7 +16,7 @@ class Board:
             "Board":[],
             "OnTable":[]
         }
-        self.card_piles={} #Stored as a dict so that you can get a card pile by its name
+        self.card_piles={} #Stored as a dict so that you can get a card pile by its name, Times this has come in handy so far: 1
         self.surface=pygame.Surface((1920,1080))
         self.camera_x=0
         self.camera_y=0 #Puts the camera about right
@@ -83,7 +83,7 @@ class Board:
             cq=240*(1-i["time"]/i["max time"])**1.6+15
             other_cq=205-(1-i["time"]/i["max time"])**1.6*205
             corner_pos=[ii-(i["time"]/i["max time"])*i["max radius"] for ii in i["center"]]
-            pygame.draw.rect(self.surface,(cq,cq,cq),(corner_pos[0],corner_pos[1],(i["time"]/i["max time"])*i["max radius"]*2,(i["time"]/i["max time"])*i["max radius"]*2),3,15)
+            pygame.draw.rect(self.surface,(cq,cq,cq),(corner_pos[0],corner_pos[1],(i["time"]/i["max time"])*i["max radius"]*2,(i["time"]/i["max time"])*i["max radius"]*2/2.1*3.2),3,15)
             i["time"]+=delta/10
             if i["time"]>i["max time"]:
                 self.removed_droplets.append(i)
@@ -125,21 +125,32 @@ class Board:
                 center(i["Card"].sprite,self.surface,i["Position"][0]+xmod,i["Position"][1])
             else:
                 center(i["Card"].sprite,self.surface,i["Position"][0]+xmod*i["Card"].parent.alive,i["Position"][1])
-                action=i["Card"].parent.action
-                if action!=None:
-                    if action["Type"]=="Deal Damage":
-                        center(sword_icon,self.surface,i["Position"][0],i["Position"][1]-184)
-                        center(render_text(action["Damage Displayed"],20,(205,205,205)),self.surface,i["Position"][0]+24,i["Position"][1]-184)
-                    elif action["Type"]=="Buff Self":
-                        center(buff_icon,self.surface,i["Position"][0],i["Position"][1]-184)
-                    if action["Type"]=="Multi Attack":
-                        center(sword_icon,self.surface,i["Position"][0],i["Position"][1]-184)
-                        center(render_text(f"{action['Damage Displayed']}x{action['Hits']}",20,(205,205,205)),self.surface,i["Position"][0]+24,i["Position"][1]-184)
-                    if action["Type"]=="Deal Damage And Block":
-                        center(sword_icon,self.surface,i["Position"][0],i["Position"][1]-184)
-                        center(shield_icon,self.surface,i["Position"][0]+40,i["Position"][1]-184)
-                        center(render_text(action["Damage Displayed"],20,(205,205,205)),self.surface,i["Position"][0]+24,i["Position"][1]-184)
-                        center(render_text(action["Block Displayed"],20,(205,205,205)),self.surface,i["Position"][0]+64,i["Position"][1]-184)
+                if i["Card"].parent.attacks["Type"]=="Random":
+                    action=i["Card"].parent.action
+                    if action!=None:
+                        if action["Type"]=="Deal Damage":
+                            center(sword_icon,self.surface,i["Position"][0],i["Position"][1]-184)
+                            center(render_text(action["Damage Displayed"],20,(205,205,205)),self.surface,i["Position"][0]+24,i["Position"][1]-184)
+                        elif action["Type"]=="Buff Self":
+                            center(buff_icon,self.surface,i["Position"][0],i["Position"][1]-184)
+                        if action["Type"]=="Multi Attack":
+                            center(sword_icon,self.surface,i["Position"][0],i["Position"][1]-184)
+                            center(render_text(f"{action['Damage Displayed']}x{action['Hits']}",20,(205,205,205)),self.surface,i["Position"][0]+24,i["Position"][1]-184)
+                        if action["Type"]=="Deal Damage And Block":
+                            center(sword_icon,self.surface,i["Position"][0],i["Position"][1]-184)
+                            center(shield_icon,self.surface,i["Position"][0]+40,i["Position"][1]-184)
+                            center(render_text(action["Damage Displayed"],20,(205,205,205)),self.surface,i["Position"][0]+24,i["Position"][1]-184)
+                            center(render_text(action["Block Displayed"],20,(205,205,205)),self.surface,i["Position"][0]+64,i["Position"][1]-184)
+                    
+                elif i["Card"].parent.attacks["Type"]=="Card Based":
+                    for I,card in enumerate(i["Card"].parent.cards_played):
+                        x_offset=(1-len(i["Card"].parent.cards_played))/2+I
+                        card.draw(delta,gensmall=True)
+                        center(card.small_sprite,self.surface,i["Position"][0]+x_offset*70,i["Position"][1]-210)
+                        if abs(i["Position"][0]+x_offset*70-self.mouse_pos[0])<35 and abs(i["Position"][1]-210-self.mouse_pos[1])<53:
+                            card.draw(delta=0)
+                            center(card.sprite,self.surface,1600,450)
+                        
                 if not i["Card"].parent.alive:
                     enemies_alive-=1
             if i["Card"].parent.alive:
@@ -278,8 +289,12 @@ class Board:
             new_card.parent=new_object_manager #Also attributes the parent to whatever is locked inside the card
             if new_object_manager.deck!=None:
                 self.setup_card_pile("Temp",(-99999999999999999,0))
-                self.import_deck([""],"Temp")
-        
+                self.import_deck([{"Type":"Spell","ID":i} for i in new_object_manager.attacks["Cards"]],"Temp")
+                new_object_manager.deck=self.card_piles["Temp"].cards
+                for card in new_object_manager.deck:
+                    card.iflip("0")
+                new_object_manager.total_card_count=len(new_object_manager.deck)
+                del self.card_piles["Temp"]
         return new_object_manager.card
         
 
@@ -360,6 +375,7 @@ class Board:
     def play_a_card(self,card,target=None,prime=True):
         self.targets=target
         self.prime_caster=self.player.parent
+        self.is_played_by_enemy=False
         if "Target" in card.data:
             if card.data["Target"]=="Self":
                 self.targets=[self.player.parent]
@@ -386,8 +402,33 @@ class Board:
             if "Exhaust" in card.data["Attributes"]:
                 card.exhausted=True 
 
+    def enemy_play_card(self,card,target=None,caster=None):
+        self.targets=target
+        self.prime_caster=caster
+        self.is_played_by_enemy=True
+        if "Target" in card.data:
+            if card.data["Target"]=="Self":
+                self.targets=[caster]
+            if card.data["Target"]=="Single":
+                self.targets=target
+            if card.data["Target"]=="All Enemies":
+                self.targets=target #Might need to be changed later, if i add familiars
+        self.card_played=card
         
-        
+        if card.type=="Spell":
+            self.caster=card
+            if "Effects" in card.data:
+                if "On Play" in card.data["Effects"]:
+                    for effect in card.data["Effects"]["On Play"]:
+                        self.run_effect(effect)
+                    
+        if card.data["Type"]=="Power": #TODO: Add power support for enemies
+            self.prime_caster.powers.append(card)
+            card.exhausted=True
+        if "Attributes" in card.data:
+            if "Exhaust" in card.data["Attributes"]:
+                card.exhausted=True 
+
     def run_effect(self,effect):
         print(self.targets[0].id,effect)
         #print(effect)
@@ -494,13 +535,19 @@ class Board:
         if effect["Type"]=="Set Target":
             self.targets=[]
             if effect["Target"]=="Self":
-                self.targets=[self.player.parent]
+                self.targets=[self.prime_caster]
             if effect["Target"]=="All Enemies":
-                for i in self.locations["OnTable"]:
-                    if i["Side"]==2:
-                        self.targets.append(i["Card"].parent)
+                if self.is_played_by_enemy:
+                    self.targets=[self.player.parent]
+                else:
+                    for i in self.locations["OnTable"]:
+                        if i["Side"]==2:
+                            self.targets.append(i["Card"].parent)
             if effect["Target"]=="Random Enemy":
-                self.targets.append(choice([i["Card"].parent for i in self.locations["OnTable"] if i["Side"]==2]))
+                if self.is_played_by_enemy:
+                    self.targets=[self.player.parent] #MinionToDo: Make this target familiars too
+                else:
+                    self.targets.append(choice([i["Card"].parent for i in self.locations["OnTable"] if i["Side"]==2]))
         if effect["Type"]=="Assign Variable": #TODO: Make this better, more accessible, and usable. 
             if effect["Select"]=="Property":
                 if "Target" in effect:
@@ -536,10 +583,17 @@ class Board:
                     for new_effect in effect["Then"]:
                         self.run_effect(new_effect)
         if effect["Type"]=="Replay Self With Cost":
-            if self.card_played.test_play_availability(self.energy,self.player.parent):
-                self.card_played.is_played(self)
-                self.update_enemy_actions()
-                self.play_a_card(self.card_played,self.targets)
+            
+            if self.is_played_by_enemy:
+                if self.card_played.test_play_availability(self.prime_caster.energy,self.prime_caster):
+                    self.card_played.is_played_by_enemy(self.prime_caster)
+                    self.update_enemy_actions()
+                    self.enemy_play_card(self.card_played,self.targets,self.prime_caster)
+            else:
+                if self.card_played.test_play_availability(self.energy,self.player.parent):
+                    self.card_played.is_played(self)
+                    self.update_enemy_actions()
+                    self.play_a_card(self.card_played,self.targets)
 
         #Card Elements
         if effect["Type"]=="Flip Self":

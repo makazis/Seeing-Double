@@ -57,6 +57,7 @@ class Creature:
                 self.max_energy=self.attacks["Energy"]
                 self.deck=[]
                 self.discard=[]
+                self.total_card_count=0
     def draw(self,delta=1):
         if self.card!=None:
             self.b_timer+=delta
@@ -139,20 +140,20 @@ class Creature:
             elif self.attacks["Type"]=="Card Based":
                 self.energy=self.max_energy
                 self.cards_played=[]
-                while self.energy>0:
+                self.att_cards_played=self.total_card_count
+                while self.energy>0 and self.att_cards_played>0: #Cards are played first, and their cost is used up later. 
                     if len(self.deck)==0:
                         self.deck=self.discard.copy()
+                        shuffle(self.deck)
                         self.discard=[]
+                    self.att_cards_played-=1
                     new_card=choice(self.deck)
                     self.deck.remove(new_card)
                     self.discard.append(new_card)
-                    if new_card.test_play_availability(self.energy,self):
-                        self.energy-=new_card.data["Energy Cost"]
-                        if "Buff Cost" in new_card.data:
-                            for i in new_card.data["Buff Cost"]:
-                                self.buffs[i]-=new_card.data["Buff Cost"][i]
-                                if self.buffs[i]==0:
-                                    del self.buffs[i]
+                    if new_card.parent.test_play_availability(self.energy,self):
+                        self.cards_played.append(new_card)
+                        self.energy-=new_card.parent.data["Energy Cost"]
+                                     #This should be done after, as it generates some weird stuff
             self.update_action()
         else:
             pass
@@ -198,34 +199,45 @@ class Creature:
                     self.action={
                         "Type":"None"
                     }
-        
+            
     def complete_action(self,board):
         #turn starts
         
         self.block=0
-        if self.action["Type"]=="Deal Damage":
-            board.player.parent.take_damage(self.action["Damage Displayed"])
-
-        if self.action["Type"]=="Buff Self":
-            for buff_applied in self.action["Buffs"]:
-                if not buff_applied["Type"] in self.buffs:
-                    self.buffs[buff_applied["Type"]]=0
-                if "Conduit" in self.buffs and buff_applied["Type"] in conduit_buffs:
-                    if buff_applied["Value"]<0:
-                        self.buffs[buff_applied["Type"]]+=-self.buffs["Conduit"]
-                    else:
-                        self.buffs[buff_applied["Type"]]+=self.buffs["Conduit"]
-                self.buffs[buff_applied["Type"]]+=buff_applied["Value"]
-    
-        
-        if self.action["Type"]=="Deal Damage And Block":
-            board.player.parent.take_damage(self.action["Damage Displayed"])
-            self.block+=self.action["Block Displayed"]
-    
-
-        if self.action["Type"]=="Multi Attack":
-            for i in range(self.action["Hits"]):
+        if self.attacks["Type"] in "Random":
+            if self.action["Type"]=="Deal Damage":
                 board.player.parent.take_damage(self.action["Damage Displayed"])
+
+            if self.action["Type"]=="Buff Self":
+                for buff_applied in self.action["Buffs"]:
+                    if not buff_applied["Type"] in self.buffs:
+                        self.buffs[buff_applied["Type"]]=0
+                    if "Conduit" in self.buffs and buff_applied["Type"] in conduit_buffs:
+                        if buff_applied["Value"]<0:
+                            self.buffs[buff_applied["Type"]]+=-self.buffs["Conduit"]
+                        else:
+                            self.buffs[buff_applied["Type"]]+=self.buffs["Conduit"]
+                    self.buffs[buff_applied["Type"]]+=buff_applied["Value"]
+        
+            
+            if self.action["Type"]=="Deal Damage And Block":
+                board.player.parent.take_damage(self.action["Damage Displayed"])
+                self.block+=self.action["Block Displayed"]
+        
+
+            if self.action["Type"]=="Multi Attack":
+                for i in range(self.action["Hits"]):
+                    board.player.parent.take_damage(self.action["Damage Displayed"])
+        elif self.attacks["Type"]=="Card Based": #TODO: Finish card playing for enemies.
+            for card in self.cards_played:
+                if card.parent.test_play_availability(9999,self):
+                    #if "Buff Cost" in new_card.parent.data:
+                    #    for i in new_card.parent.data["Buff Cost"]:
+                    #        self.buffs[i]-=new_card.parent.data["Buff Cost"][i]
+                    #        if self.buffs[i]==0:
+                    #            del self.buffs[i]
+           
+                    board.enemy_play_card(card.parent,[board.player.parent],self)
     def turn_end(self):
         if self.team==1:
             if "Poison" in self.buffs:

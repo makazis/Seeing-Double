@@ -54,7 +54,7 @@ class Card:
             "Custom Flip Side":flip_to_side,
             "Vertical Flip":flip_vertically
         })
-    def draw(self,delta=1): #Updates the card sprite, it is recommended this is ran every frame
+    def draw(self,delta=1,gensmall=False): #Updates the card sprite, it is recommended this is ran every frame
         if self.parent!=None: #Draws the cards parent first
             if self.parent.type=="Creature":
                 self.parent.draw(delta)
@@ -96,6 +96,8 @@ class Card:
                         self.data["Side On Top"]=i["Custom Flip Side"]
         if self.default_draw: #renders the card normally
             self.sprite.blit(self.sides[self.data["Side On Top"]],(0,0))
+        if gensmall:
+            self.small_sprite=pygame.transform.scale_by(self.sprite,1/3)
     def side_from_surface(self,surface,side="Front"): #Allows you to set custom images as sides of the card.
         if not side in self.sides:
             self.sides[side]=surface.subsurface((0,0,210,320)).copy() #Crops to the top left corner
